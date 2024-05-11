@@ -1,15 +1,86 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<!--  thẻ title là bắt buộc phải có, nó sẽ hiển thị ở tiêu đề của trình duyệt. và nội dung trong thẻ title
-sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
-nên có ít hơn 180 kí tự -->
+  <!--  thẻ title là bắt buộc phải có, nó sẽ hiển thị ở tiêu đề của trình duyệt. và nội dung trong thẻ title
+  sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
+  nên có ít hơn 180 kí tự -->
   <title><%= __('title') %></title>
+  <style>
+    /* Định dạng phần header */
+    header {
+      margin-bottom: 20px;
+    }
+
+    /* Định dạng phần navbar */
+    .navbar {
+      background-color: #f8f9fa;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+    }
+
+    .nav-link {
+      font-size: 14px;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    /* Định dạng phần h1 và h2 */
+    h1, h2 {
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Định dạng phần form */
+    #instagramForm {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 300px;
+    }
+
+    button[type="submit"] {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Định dạng phần ảnh */
+    #imageContainer {
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Định dạng phần footer */
+    footer {
+      margin-top: 20px;
+      padding: 10px 0;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+  </style>
   <meta name="description" content="<%= __('description') %>">
   <meta itemprop="image" content="">
-<!--
-  Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
--->
+  <!--
+    Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
+  -->
   <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
   <meta name="twitter:title" content="<%= __('twitter_title') %>">
   <meta name="twitter:description" content="<%= __('twitter_description') %>">
@@ -23,14 +94,14 @@ nên có ít hơn 180 kí tự -->
   <meta property="og:image" content="https://dotsave.app/assets/img/snapthumb.jpg">
   <meta property="og:description" content="<%= __('og_description') %>">
   <meta property="og:site_name" content="dotsave.App">
-<!-- Quy định icon cho thiết bị iphone-->
+  <!-- Quy định icon cho thiết bị iphone-->
   <link rel="apple-touch-icon" sizes="192x192" href="https://dotsave.app/img/icons-192.png">
 
-<!--  quy định icon hiển thị trên trình duyệt -->
+  <!--  quy định icon hiển thị trên trình duyệt -->
   <link rel="shortcut icon" href="https://dotsave.app/assets/img/favicon.png" />
-<!--  báo hiệu google không dịch nội dung website  -->
+  <!--  báo hiệu google không dịch nội dung website  -->
   <meta name="google" content="notranslate" />
-<!--  liệt kê các phiên bản ngôn ngữ khác mà website hỗ trợ -->
+  <!--  liệt kê các phiên bản ngôn ngữ khác mà website hỗ trợ -->
   <link rel="alternate" hreflang="x-default" href="https://dotsave.app/" />
   <link rel="alternate" hreflang="en" href="https://dotsave.app/" />
   <link rel="alternate" hreflang="en-in" href="https://dotsave.app/in">
@@ -53,7 +124,7 @@ nên có ít hơn 180 kí tự -->
   <link rel="alternate" hreflang="nl" href="https://dotsave.app/nl" />
   <link rel="alternate" hreflang="ro" href="https://dotsave.app/ro" />
   <link rel="alternate" hreflang="el" href="https://dotsave.app/el" />
-<!-- nội dung gốc là trang đang được hiển thị  -->
+  <!-- nội dung gốc là trang đang được hiển thị  -->
   <link rel="canonical" href="https://dotsave.app/" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,12 +165,43 @@ nên có ít hơn 180 kí tự -->
 </header>
 <h1 class="text-center"><%= __('h1') %></h1>
 <h2><%= __('h2') %></h2>
+<h1>Tải ảnh từ Instagram</h1>
 
+<form id="instagramForm">
+  <label for="instagramUrl">URL Instagram:</label>
+  <input type="text" id="instagramUrl" name="instagramUrl" required>
+  <button type="submit">Tải ảnh</button>
+</form>
+
+<div id="imageContainer"></div>
+<a href="#" id="downloadBtn" download hidden>Tải ảnh</a>
 <footer>
 
 </footer>
 
 
+<script>
+  const form = document.getElementById('instagramForm');
+  const imageContainer = document.getElementById('imageContainer');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const instagramUrl = document.getElementById('instagramUrl').value;
+    const response = await fetch(`/download-instagram-image?url=${encodeURIComponent(instagramUrl)}`);
+    const blob = await response.blob();
+    const imageUrl = URL.createObjectURL(blob);
+
+    const imageElement = document.createElement('img');
+    imageElement.src = imageUrl;
+    imageContainer.innerHTML = '';
+    imageContainer.appendChild(imageElement);
+
+    downloadBtn.href = imageUrl;
+    downloadBtn.hidden = false;
+  });
+</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
