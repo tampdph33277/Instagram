@@ -7,6 +7,7 @@
   nên có ít hơn 180 kí tự -->
   <title><%= __('title') %></title>
   <style>
+    /* CSS styles */
     /* Định dạng phần header */
     header {
       margin-bottom: 20px;
@@ -163,24 +164,25 @@
     </div>
   </nav>
 </header>
-<h1 class="text-center"><%= __('h1') %></h1>
-<h2><%= __('h2') %></h2>
 <h1>Tải ảnh từ Instagram</h1>
-
 <form id="instagramForm">
   <label for="instagramUrl">URL Instagram:</label>
   <input type="text" id="instagramUrl" name="instagramUrl" required>
   <button type="submit">Tải ảnh</button>
 </form>
 
+<!-- Khu vực hiển thị ảnh -->
 <div id="imageContainer"></div>
-<a href="#" id="downloadBtn" download hidden>Tải ảnh</a>
-<footer>
 
+<!-- Nút tải ảnh -->
+<a href="#" id="downloadBtn" download hidden>Tải ảnh</a>
+
+<footer>
+  <!-- Footer content -->
 </footer>
 
-
 <script>
+  // JavaScript logic
   const form = document.getElementById('instagramForm');
   const imageContainer = document.getElementById('imageContainer');
   const downloadBtn = document.getElementById('downloadBtn');

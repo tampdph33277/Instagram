@@ -1,26 +1,57 @@
 const express = require('express');
 const router = express.Router();
-const InstagramUrlDirect = require('instagram-url-direct');
 const axios = require('axios');
-const fs = require('fs');
 
-router.get('/download-instagram-image', async function(req, res, next) {
-    try {
-        const instagramUrl = req.query.url;
-        const imageUrl = await InstagramUrlDirect.getImageUrl(instagramUrl);
-        // Kiểm tra xem imageUrl có giá trị không trước khi tải ảnh
-        if (imageUrl) {
-            const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-            res.set('Content-Type', 'image/jpeg');
-            res.set('Content-Disposition', 'attachment; filename="image.jpg"');
-            res.send(imageResponse.data);
-        } else {
-            res.status(400).send('Không thể tải ảnh từ URL Instagram.');
+const app = express();
+const port = process.env.PORT || 3000; // Use environment variable for port
+
+app.use(express.json()); // Parse incoming JSON data
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html'); // Serve the HTML file
+});
+
+router.get('/download-instagram-image', async (req, res) => {
+    const instagramUrl = req.query.url;
+    // ... rest of your code ...
+
+
+
+    const options = {
+        method: 'POST',
+        url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': 'YOUR_RAPIDAPI_KEY', // Replace with your actual key
+            'X-RapidAPI-Host': 'instagram120.p.rapidapi.com'
+        },
+        data: {
+            url: instagramUrl
         }
+    };
+
+    try {
+        const response = await axios.request(options);
+        const mediaUrl = response.data.mediaUrl;
+
+        if (!mediaUrl) {
+            return res.status(400).json({ error: 'No media URL found in response' });
+        }
+
+        // Implement logic to download the media (image or video) from mediaUrl
+        // You can use libraries like 'fs' or external services for downloading
+        // ... your download logic ...
+
+        // Replace with a placeholder response until you implement download logic
+        res.json({ message: 'Media URL retrieved successfully!', mediaUrl });
     } catch (error) {
-        console.error('Lỗi khi tải ảnh từ Instagram:', error);
-        res.status(500).send('Đã xảy ra lỗi khi tải ảnh từ Instagram.');
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-module.exports = router;
+app.use('/', router);
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
