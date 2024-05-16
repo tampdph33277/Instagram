@@ -2,6 +2,10 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const axios = require('axios');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+
 var logger = require('morgan');
 var i18n = require("i18n");
 i18n.configure({
@@ -118,12 +122,12 @@ const glob = require('glob');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const fs = require("fs");
+
 
 var app = express();
 
 app.use(i18n.init);
-
+app.use(express.static('public'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -133,6 +137,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/users', usersRouter);
 
@@ -186,6 +191,44 @@ app.get('/:lang',function (req,res,next) {
   i18n.setLocale(req,lang)
   res.render('index', {lang : lang})
 })
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post("/download", async (req, res) => {
+  var url = req.body.url;
+  if (!url) {
+    return res.status(404).redirect('/');
+  }
+
+  const options = {
+    method: 'POST',
+    url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Key': '16a490b4f8msh223ff679ca0b62fp181abdjsnc4beeb2c44d0',
+      'X-RapidAPI-Host': 'instagram120.p.rapidapi.com'
+    },
+    data: {
+      url: url
+    }
+  };
+
+  try {
+    const response = await axios.request(options);
+     console.log(response.data);
+    const pictureUrls = response.data.map(item => item.pictureUrl);
+    console.log('Picture URLs:', pictureUrls);
+
+    // Render template với tất cả pictureUrls
+    res.status(200).render('downloader', { pictureUrls: pictureUrls });
+
+  } catch (error) {
+    console.error("Lỗi khi gửi yêu cầu API:", error);
+    return res.status(500).send('Lỗi khi gửi yêu cầu API');
+  }
+});
+
 // error handler
 app.use(function(req, res, next) {
   next(createError(404));

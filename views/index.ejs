@@ -6,77 +6,6 @@
   sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
   nên có ít hơn 180 kí tự -->
   <title><%= __('title') %></title>
-  <style>
-    /* CSS styles */
-    /* Định dạng phần header */
-    header {
-      margin-bottom: 20px;
-    }
-
-    /* Định dạng phần navbar */
-    .navbar {
-      background-color: #f8f9fa;
-    }
-
-    .navbar-brand {
-      font-weight: bold;
-    }
-
-    .nav-link {
-      font-size: 14px;
-    }
-
-    .dropdown-item {
-      font-size: 14px;
-    }
-
-    /* Định dạng phần h1 và h2 */
-    h1, h2 {
-      color: #333;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    /* Định dạng phần form */
-    #instagramForm {
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input[type="text"] {
-      width: 300px;
-    }
-
-    button[type="submit"] {
-      margin-top: 10px;
-      padding: 5px 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Định dạng phần ảnh */
-    #imageContainer {
-      margin-bottom: 20px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Định dạng phần footer */
-    footer {
-      margin-top: 20px;
-      padding: 10px 0;
-      background-color: #f8f9fa;
-      text-align: center;
-    }
-  </style>
   <meta name="description" content="<%= __('description') %>">
   <meta itemprop="image" content="">
   <!--
@@ -164,46 +93,21 @@
     </div>
   </nav>
 </header>
-<h1>Tải ảnh từ Instagram</h1>
-<form id="instagramForm">
-  <label for="instagramUrl">URL Instagram:</label>
-  <input type="text" id="instagramUrl" name="instagramUrl" required>
-  <button type="submit">Tải ảnh</button>
+<h1 class="text-center"><%= __('h1') %></h1>
+<p>Công cụ tải Thumbnail Youtube số 1 VN</p>
+<form action="/download" method="post" >
+  <label> LINK :
+    <input required placeholder="Nhập link tại đây" name="url">
+  </label>
+  <button type="submit">Download</button>
 </form>
-
-<!-- Khu vực hiển thị ảnh -->
-<div id="imageContainer"></div>
-
-<!-- Nút tải ảnh -->
-<a href="#" id="downloadBtn" download hidden>Tải ảnh</a>
+<h2><%= __('h2') %></h2>
 
 <footer>
-  <!-- Footer content -->
+
 </footer>
 
-<script>
-  // JavaScript logic
-  const form = document.getElementById('instagramForm');
-  const imageContainer = document.getElementById('imageContainer');
-  const downloadBtn = document.getElementById('downloadBtn');
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const instagramUrl = document.getElementById('instagramUrl').value;
-    const response = await fetch(`/download-instagram-image?url=${encodeURIComponent(instagramUrl)}`);
-    const blob = await response.blob();
-    const imageUrl = URL.createObjectURL(blob);
-
-    const imageElement = document.createElement('img');
-    imageElement.src = imageUrl;
-    imageContainer.innerHTML = '';
-    imageContainer.appendChild(imageElement);
-
-    downloadBtn.href = imageUrl;
-    downloadBtn.hidden = false;
-  });
-</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
