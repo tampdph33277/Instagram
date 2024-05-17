@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <title><%= __('title') %></title>
     <meta name="description" content="<%= __('description') %>">
     <meta itemprop="image" content="">
+
     <!--
       Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
     -->
@@ -62,94 +64,286 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="container text-center">
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">dotSAVE.app</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        LANGUAGE
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/en">English</a>
-                        <a class="dropdown-item" href="/vi">Vietnamese</a>
+
+<body class="container text-center "  >
+<header >
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background:#af7878">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="navbar-brand">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                        <div id="insta" class="fw-bold text-info">Insta</div>
+                        <div id="saver" class="fw-bold text-white">Snap</div>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+                </div>
+                <div class="d-flex">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                LANGUAGE
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/en">English</a>
+                                <a class="dropdown-item" href="/vi">Vietnamese</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
-<img  crossorigin="anonymous" src="https://instagram.frez1-1.fna.fbcdn.net/v/t51.29350-15/443264628_3826585660942343_5228607395634667349_n.jpg?stp=dst-jpg_e15&_nc_ht=instagram.frez1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=GjXWl9Cwy3YQ7kNvgHj6hfk&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AYD1abizqZezJatDyT8LUkPEPqXJ9tSjjsoyEUfcsceunQ&oe=66489B77&_nc_sid=2999b8"   class="card-img-top">
 
-<h1 class="text-center">Downloaded Content</h1>
-<div class="row">
-    <% if (mediaData && mediaData.length > 0) { %>
-        <% mediaData.forEach(function(media) { %>
-            <div id="card_download" class="card col-12 col-sm-6 col-md-4">
-                <% if (media.pictureUrls && media.pictureUrls.length > 0) { %>
 
-                    <% media.pictureUrls.forEach(function(pictureUrl) { %>
-                        <img
-                                crossorigin="anonymous"
-                                id="thumbnail"
-                                src="https://ig.instasaver.me/?url=<%= pictureUrl %>"
-                                class="card-img-top"
-                                alt="img...">
 
-                        <p>
 
-                            <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm">Download</a>
-                        </p>
-                    <% }); %>
-                <% } %>
-                <% if (media.videoUrls && media.videoUrls.length > 0) { %>
-                    <h2>Videos</h2>
-                    <% media.videoUrls.forEach(function(videoUrl) { %>
-                        <% if (media.picture) { %>
+
+<main class="mb-5" style="background: #4a4a4a">
+
+
+
+    <h1 class="text-black text-center fw-bold"><%= __('h1') %></h1>
+    <h2 class="text-black text-center mt-4"><%= __('h2') %></h2>
+    <div class="row">
+        <% if (mediaData && mediaData.length > 0) { %>
+            <% mediaData.forEach(function(media) { %>
+                <div id="card_download" class="card col-12 col-sm-6 col-md-4">
+                    <% if (media.pictureUrls && media.pictureUrls.length > 0) { %>
+
+                        <% media.pictureUrls.forEach(function(pictureUrl) { %>
+                            <img
+                                    crossorigin="anonymous"
+                                    id="thumbnail"
+                                    src="https://ig.instasaver.me/?url=<%= pictureUrl %>"
+                                    class="card-img-top"
+                                    alt="img...">
+
+                            <p>
+
+                                <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm">Download</a>
+                            </p>
+                        <% }); %>
+                    <% } %>
+                    <% if (media.videoUrls && media.videoUrls.length > 0) { %>
+                        <h2>Videos</h2>
+                        <% media.videoUrls.forEach(function(videoUrl) { %>
+                            <% if (media.picture) { %>
                                 <img
                                         crossorigin="anonymous"
                                         id="thumbnail"
                                         src="https://ig.instasaver.me/?url=<%= media.picture %>"
                                         class="card-img-top"
                                         alt="img...">
-                        <% } %>
-                        <p>
+                            <% } %>
+                            <p>
 
-                            <a href="<%= videoUrl %>" download class="btn btn-primary btn-sm">Download</a>
-                        </p>
-                    <% }); %>
-                <% } %>
+                                <a href="<%= videoUrl %>" download class="btn btn-primary btn-sm">Download</a>
+                            </p>
+                        <% }); %>
+                    <% } %>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="col-12">
+                <p>No media links found</p>
             </div>
-        <% }); %>
-    <% } else { %>
-        <div class="col-12">
-            <p>No media links found</p>
+        <% } %>
+    </div>
+
+    <div style="margin-top: 20rem">
+
+        <div class="row g-2 g-sm-2 my-3">
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-video.webp"
+                     class="img-fluid rounded" alt="...">
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="text-white fw-bold">Download Instagram Video</h2>
+                <p class="text-white">InstaSaver was created to allow you to download IG videos for any purpose you want. InstaSaver supports downloading videos for both single and multiple videos from Insta.</p>
+            </div>
         </div>
-    <% } %>
-</div>
+
+        <div class="row g-2 g-sm-2 my-3">
+            <div class="col-12 col-md-7 mb-3 mb-md-0 order-2 order-md-1">
+                <h2 class="text-white fw-bold">Download Instagram Reels</h2>
+                <p class="text-white">Instagram Photo Downloader from Snapinsta allows you to save any photo or collage from Instagram without any difficulty. With Snapinsta you can download a single post image as well as download multiple Instagram photos.</p>
+            </div>
+            <div class="col-12 col-md-5 order-1 order-md-2 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-photo.webp"
+                     class="img-fluid rounded" alt="...">
+            </div>
+        </div>
+
+        <div class="row g-2 g-sm-2 my-3">
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-reels.webp"
+                     class="img-fluid rounded" alt="...">
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="text-white fw-bold">Download Instagram Reels</h2>
+                <p class="text-white">Instagram Reels Downloader by Snapinsta will help you download Reels videos from Instagram posts to your device in the easiest way when Instagram does not support you in this.</p>
+            </div>
+        </div>
+
+        <h2 class="text-white mt-3 fw-bold">FAQ</h2>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne0">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne0" aria-expanded="false"
+                            aria-controls="flush-collapseOne0">
+                        How do I use Instagram Video Downloader?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne0" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">It&#39;s simple! Just copy the URL of the video from Instagram and paste it into our downloader tool.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne1" aria-expanded="false"
+                            aria-controls="flush-collapseOne1">
+                        Will the videos I download maintain their quality?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne1" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">Yes, videos downloaded with Instagram Video Downloader will retain the same quality as on Instagram.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne2" aria-expanded="false"
+                            aria-controls="flush-collapseOne2">
+                        Is there any software installation required?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne2" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">No need! Instagram Video Downloader works online, no software installation is required.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne3" aria-expanded="false"
+                            aria-controls="flush-collapseOne3">
+                        Can I download Instagram videos on mobile phones?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne3" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">Absolutely! Instagram Video Downloader works on both computers and mobile phones.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne4" aria-expanded="false"
+                            aria-controls="flush-collapseOne4">
+                        Can I download both videos and stories from Instagram?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne4" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">Yes, you can download both videos and stories from Instagram using Instagram Video Downloader.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne5" aria-expanded="false"
+                            aria-controls="flush-collapseOne5">
+                        Can I download videos from any Instagram account?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne5" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">That&#39;s correct! Any public or private video can be downloaded.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne6">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne6" aria-expanded="false"
+                            aria-controls="flush-collapseOne6">
+                        Do I need to pay to use this service?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne6" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">Not at all! Instagram Video Downloader is completely free to use.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne7">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne7" aria-expanded="false"
+                            aria-controls="flush-collapseOne7">
+                        Will there be a watermark on the downloaded videos?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne7" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">No, Instagram Video Downloader does not add any watermarks to the downloaded videos.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne8">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne8" aria-expanded="false"
+                            aria-controls="flush-collapseOne8">
+                        Is there a limit to the number of videos I can download?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne8" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">No, there&#39;s no limit! You can download as many videos from Instagram as you want without any restrictions.</div>
+                </div>
+            </div>
+
+            <div class="accordion-item mt-3 border-0">
+                <h2 class="accordion-header" id="flush-headingOne9">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne9" aria-expanded="false"
+                            aria-controls="flush-collapseOne9">
+                        Where are my downloaded videos stored after they are downloaded?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne9" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body text-white bg-info">The videos are usually stored in the &#34;Downloads&#34; folder on both Android phones and PCs.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
 
 
-
-
-
-
-<footer>
-
-
+</main>
+<footer class="text-center text-sm-start" style="background-color: black">
+    <div class="container">
+        <div class="text-center p-4 text-white">
+            © 2024 InstaSaver.me - All rights reserved.
+        </div>
+    </div>
 </footer>
 
 

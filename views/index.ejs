@@ -9,8 +9,16 @@
   <title><%= __('title') %></title>
   <meta name="description" content="<%= __('description') %>">
   <meta itemprop="image" content="">
-
+  <meta name="twitter:image:src" content="/images/ig.png"/>
+  <meta property="og:image" content="/images/quickload.png"/>
+  <link rel="icon" type="image/png" href="/images/ig.png">
+  <meta name="google" content="notranslate"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6705616556499368"
+          crossorigin="anonymous"></script>
+  <link rel="apple-touch-icon" sizes="192x192" href="/images/ig.png">
+  <link rel="shortcut icon" sizes="192x192" href="/images/ig.png">
   <!--
+
     Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
   -->
   <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
@@ -68,13 +76,13 @@
 <body class="container text-center "  >
 <header >
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#af7878">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#020202">
     <div class="container-fluid">
       <div class="d-flex justify-content-between align-items-center w-100">
         <div class="navbar-brand">
           <div class="d-flex flex-row justify-content-start align-items-center">
             <div id="insta" class="fw-bold text-info">Insta</div>
-            <div id="saver" class="fw-bold text-white">Saver</div>
+            <div id="saver" class="fw-bold text-white">Snap</div>
           </div>
         </div>
         <div class="d-flex">
@@ -107,12 +115,12 @@
     <input id="link_url" type="text" class="form-control" name="url" required
           aria-label="Username" aria-describedby="basic-addon1">
 
-    <span id="paste_link" class="input-group-text px-4" id="basic-addon1">Paste</span>
+    <span id="paste_link" class="input-group-text px-4" id="basic-addon1"><%= __('paste') %></span>
   </div>
 
   <div class="mt-2 mt-sm-0">
     <button id="download_link" type="submit"
-            class="btn btn-info p-2 p-sm-2 mx-2 text-white">Download</button>
+            class="btn btn-info p-2 p-sm-2 mx-2 text-white"><%= __('dow_url') %></button>
     <button id="loading"
             style="display:none;"
             class="btn btn-info p-2 p-sm-3 mx-2 text-white">Loading...
@@ -127,15 +135,15 @@
              class="img-fluid rounded" alt="...">
       </div>
       <div class="col-12 col-md-7">
-        <h2 class="text-white fw-bold">Download Instagram Video</h2>
-        <p class="text-white">InstaSaver was created to allow you to download IG videos for any purpose you want. InstaSaver supports downloading videos for both single and multiple videos from Insta.</p>
+        <h2 class="text-white fw-bold"><%= __('text1_1') %></h2>
+        <p class="text-white"><%= __('text1_2') %></p>
       </div>
     </div>
 
     <div class="row g-2 g-sm-2 my-3">
       <div class="col-12 col-md-7 mb-3 mb-md-0 order-2 order-md-1">
-        <h2 class="text-white fw-bold">Download Instagram Reels</h2>
-        <p class="text-white">Instagram Photo Downloader from Snapinsta allows you to save any photo or collage from Instagram without any difficulty. With Snapinsta you can download a single post image as well as download multiple Instagram photos.</p>
+        <h2 class="text-white fw-bold"><%= __('text2_1') %></h2>
+        <p class="text-white"><%= __('text2_2') %></p>
       </div>
       <div class="col-12 col-md-5 order-1 order-md-2 d-flex justify-content-center">
         <img src="https://snapinsta.app/assets/img/thumb/insta-photo.webp"
@@ -149,8 +157,8 @@
              class="img-fluid rounded" alt="...">
       </div>
       <div class="col-12 col-md-7">
-        <h2 class="text-white fw-bold">Download Instagram Reels</h2>
-        <p class="text-white">Instagram Reels Downloader by Snapinsta will help you download Reels videos from Instagram posts to your device in the easiest way when Instagram does not support you in this.</p>
+        <h2 class="text-white fw-bold"><%= __('text3_1') %></h2>
+        <p class="text-white"><%= __('text3_2') %></p>
       </div>
     </div>
 
@@ -366,10 +374,13 @@
     });
   });
 </script>
-<footer>
-
+<footer class="text-center text-sm-start" style="background-color: black">
+  <div class="container">
+    <div class="text-center p-4 text-white">
+      © 2024 InstaSaver.me - All rights reserved.
+    </div>
+  </div>
 </footer>
-
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
