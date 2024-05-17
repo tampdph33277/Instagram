@@ -196,7 +196,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post("/download", async (req, res) => {
-  var url = req.body.url;
+  const url = req.body.url;
   if (!url) {
     return res.status(404).redirect('/');
   }
@@ -216,19 +216,29 @@ app.post("/download", async (req, res) => {
 
   try {
     const response = await axios.request(options);
-     console.log(response.data);
-    const pictureUrls = response.data.map(item => item.pictureUrl);
-    console.log('Picture URLs:', pictureUrls);
+    console.log(response.data);
 
-    // Render template với tất cả pictureUrls
-    res.status(200).render('downloader', { pictureUrls: pictureUrls });
+    let mediaData = [];
 
+    // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+    if (response.data && response.data.length > 0) {
+      response.data.forEach(item => {
+        let mediaItem = {
+          pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
+          videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
+          picture: item.pictureUrl,
+        };
+        mediaData.push(mediaItem);
+      });
+    }
+
+    res.status(200).render('downloader', { mediaData: mediaData });
+    console.log('Media Data:', mediaData);
   } catch (error) {
     console.error("Lỗi khi gửi yêu cầu API:", error);
     return res.status(500).send('Lỗi khi gửi yêu cầu API');
   }
 });
-
 // error handler
 app.use(function(req, res, next) {
   next(createError(404));

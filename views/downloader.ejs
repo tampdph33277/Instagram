@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -92,34 +93,54 @@
         </div>
     </nav>
 </header>
-<h1>Download Pictures from Instagram</h1>
-<% pictureUrls.forEach(function(pictureUrl, index) { %>
-    <div>
-        <img crossorigin="anonymous" src="<%= pictureUrl %>" alt="Instagram Picture" style="width: 50%; max-width: 600px;">
-        <div>
-            <button type="button" onclick="downloadImage('https://ig.instasaver.me/?url=<%= pictureUrl %>', 'InstagramPicture-<%= index %>.jpg')">Download Picture</button>
+<img  crossorigin="anonymous" src="https://instagram.frez1-1.fna.fbcdn.net/v/t51.29350-15/443264628_3826585660942343_5228607395634667349_n.jpg?stp=dst-jpg_e15&_nc_ht=instagram.frez1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=GjXWl9Cwy3YQ7kNvgHj6hfk&edm=AP_V10EBAAAA&ccb=7-5&oh=00_AYD1abizqZezJatDyT8LUkPEPqXJ9tSjjsoyEUfcsceunQ&oe=66489B77&_nc_sid=2999b8"   class="card-img-top">
+
+<h1 class="text-center">Downloaded Content</h1>
+<div class="row">
+    <% if (mediaData && mediaData.length > 0) { %>
+        <% mediaData.forEach(function(media) { %>
+            <div id="card_download" class="card col-12 col-sm-6 col-md-4">
+                <% if (media.pictureUrls && media.pictureUrls.length > 0) { %>
+
+                    <% media.pictureUrls.forEach(function(pictureUrl) { %>
+                        <img
+                                crossorigin="anonymous"
+                                id="thumbnail"
+                                src="https://ig.instasaver.me/?url=<%= pictureUrl %>"
+                                class="card-img-top"
+                                alt="img...">
+
+                        <p>
+
+                            <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm">Download</a>
+                        </p>
+                    <% }); %>
+                <% } %>
+                <% if (media.videoUrls && media.videoUrls.length > 0) { %>
+                    <h2>Videos</h2>
+                    <% media.videoUrls.forEach(function(videoUrl) { %>
+                        <% if (media.picture) { %>
+                                <img
+                                        crossorigin="anonymous"
+                                        id="thumbnail"
+                                        src="https://ig.instasaver.me/?url=<%= media.picture %>"
+                                        class="card-img-top"
+                                        alt="img...">
+                        <% } %>
+                        <p>
+
+                            <a href="<%= videoUrl %>" download class="btn btn-primary btn-sm">Download</a>
+                        </p>
+                    <% }); %>
+                <% } %>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <div class="col-12">
+            <p>No media links found</p>
         </div>
-    </div>
-    <hr>
-<% }); %>
-
-<script>
-    function downloadImage(url, filename) {
-        fetch(url)
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(error => console.error('Lỗi khi tải xuống ảnh:', error));
-    }
-</script>
-
+    <% } %>
+</div>
 
 
 
