@@ -220,15 +220,41 @@ app.post("/download", async (req, res) => {
 
     let mediaData = [];
 
-    // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+
+    // // Trích xuất URL ảnh và video từ dữ liệu phản hồi
     if (response.data && response.data.length > 0) {
       response.data.forEach(item => {
         let mediaItem = {
           pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
           videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
           picture: item.pictureUrl,
+
         };
         mediaData.push(mediaItem);
+      });
+    }  // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+    // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+    if (response.data && response.data.result && response.data.result.length > 0) {
+      response.data.result.forEach(item => {
+        let video_stos = [];
+        let picture_stos = [];
+
+        // Lấy link video từ video_versions
+        if (item.video_versions && Array.isArray(item.video_versions)) {
+          video_stos = item.video_versions.map(video => video.url);
+          console.log("Video URLs from video_versions:", video_stos);
+        }
+
+        // Lấy link ảnh từ image_versions2
+        if (item.image_versions2 && item.image_versions2.candidates) {
+          picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
+          console.log("Picture URLs from image_versions2:", picture_stos);
+        }
+
+        mediaData.push({
+          video_stos: video_stos,
+          picture_stos: picture_stos
+        });
       });
     }
 
