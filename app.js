@@ -5,8 +5,7 @@ var cookieParser = require('cookie-parser');
 const axios = require('axios');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-
-var logger a= require('morgan');
+var logger = require('morgan');
 var i18n = require("i18n");
 i18n.configure({
     locales: [
