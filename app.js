@@ -5,115 +5,12 @@ var cookieParser = require('cookie-parser');
 const axios = require('axios');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-
 var logger = require('morgan');
 var i18n = require("i18n");
 i18n.configure({
   locales: [
-    "af",
-    "sq",
-    "am",
-    "ar",
-    "hy",
-    "az",
-    "eu",
-    "be",
-    "bn",
-    "bs",
-    "bg",
-    "ca",
-    "ceb",
-    "zh-CN",
-    "zh-TW",
-    "co",
-    "hr",
-    "cs",
-    "da",
-    "nl",
     "en",
-    "eo",
-    "et",
-    "fi",
-    "fr",
-    "fy",
-    "gl",
-    "ka",
-    "de",
-    "el",
-    "gu",
-    "ht",
-    "ha",
-    "haw",
-    "iw",
-    "hi",
-    "hmn",
-    "hu",
-    "is",
-    "ig",
-    "id",
-    "ga",
-    "it",
-    "ja",
-    "jw",
-    "kn",
-    "kk",
-    "km",
-    "ko",
-    "ku",
-    "ky",
-    "lo",
-    "la",
-    "lv",
-    "lt",
-    "lb",
-    "mk",
-    "mg",
-    "ms",
-    "ml",
-    "mt",
-    "mi",
-    "mr",
-    "mn",
-    "my",
-    "ne",
-    "no",
-    "ny",
-    "ps",
-    "fa",
-    "pl",
-    "pt",
-    "pa",
-    "ro",
-    "ru",
-    "sm",
-    "gd",
-    "sr",
-    "st",
-    "sn",
-    "sd",
-    "si",
-    "sk",
-    "sl",
-    "so",
-    "es",
-    "su",
-    "sw",
-    "sv",
-    "tl",
-    "tg",
-    "ta",
-    "te",
-    "th",
-    "tr",
-    "uk",
-    "ur",
-    "uz",
-    "vi",
-    "cy",
-    "xh",
-    "yi",
-    "yo",
-    "zu"],
+    "vi"],
   directory: __dirname + '/language',
   cookie: 'lang',
   header: 'accept-language'
@@ -134,41 +31,35 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-const language_dict = {};
-glob.sync('./language/*.json').forEach(function (file) {
-  console.log(file);
-  let dash = file.split(path.sep);
-  if (dash.length === 2) {
-    let dot = dash[1].split(".");
-    if (dot.length === 2) {
+var language_dict = {};
+glob.sync('../language/*.json').forEach(function (file) {
+  let dash = file.split("/");
+  if (dash.length == 3) {
+    let dot = dash[2].split(".");
+    if (dot.length == 2) {
       let lang = dot[0];
       fs.readFile(file, function (err, data) {
-        if (err) {
-          console.error(err);
-          return;
-        }
         language_dict[lang] = JSON.parse(data.toString());
       });
     }
   }
 });
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ
-app.get('/',function (req,res) {
-  let lang  = 'en';
-  i18n.setLocale(req,'en')
-  res.render('index', {lang : lang})
+app.get('/', function (req, res) {
+  let lang = 'en';
+  i18n.setLocale(req, 'en')
+  res.render('index', {lang: lang})
 })
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
 // ví dụ : https://dotsave.app/en
-app.get('/:lang',function (req,res,next) {
+app.get('/:lang', function (req, res, next) {
   // lấy ra địa chỉ truy vấn
   const q = req.url;
   // tách ra language code từ địa chỉ truy vấn
@@ -188,11 +79,11 @@ app.get('/:lang',function (req,res,next) {
     }
   }
   if (lang == undefined) lang = 'en'
-  i18n.setLocale(req,lang)
-  res.render('index', {lang : lang})
+  i18n.setLocale(req, lang)
+  res.render('index', {lang: lang})
 })
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.post("/download", async (req, res) => {
@@ -258,7 +149,7 @@ app.post("/download", async (req, res) => {
       });
     }
 
-    res.status(200).render('downloader', { mediaData: mediaData });
+    res.status(200).render('downloader', {mediaData: mediaData});
     console.log('Media Data:', mediaData);
   } catch (error) {
     console.error("Lỗi khi gửi yêu cầu API:", error);
@@ -266,10 +157,10 @@ app.post("/download", async (req, res) => {
   }
 });
 // error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

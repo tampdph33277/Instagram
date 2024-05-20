@@ -3,219 +3,219 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!--  thẻ title là bắt buộc phải có, nó sẽ hiển thị ở tiêu đề của trình duyệt. và nội dung trong thẻ title
-  sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
-  nên có ít hơn 180 kí tự -->
-  <title><%= __('title') %></title>
-  <meta name="description" content="<%= __('description') %>">
-  <meta itemprop="image" content="">
-  <meta name="twitter:image:src" content="/images/ig.png"/>
-  <meta property="og:image" content="/images/quickload.png"/>
-  <link rel="icon" type="image/png" href="/public/images/ig.png">
-  <meta name="google" content="notranslate"/>
-  <link rel="stylesheet" href="stylesheets/style.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6705616556499368"
-          crossorigin="anonymous"></script>
-<style>
+    <!--  thẻ title là bắt buộc phải có, nó sẽ hiển thị ở tiêu đề của trình duyệt. và nội dung trong thẻ title
+    sẽ chứa từ khóa và nó là dấu hiệu đầu tiên mà Google sẽ kiểm tra để biết website làm nội dung gì ???
+    nên có ít hơn 180 kí tự -->
+    <title><%= __('title') %></title>
+    <meta name="description" content="<%= __('description') %>">
+    <meta itemprop="image" content="">
+    <meta name="twitter:image:src" content="/images/ig.png"/>
+    <meta property="og:image" content="/images/quickload.png"/>
+    <link rel="icon" type="image/png" href="/public/images/ig.png">
+    <meta name="google" content="notranslate"/>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6705616556499368"
+            crossorigin="anonymous"></script>
+    <style>
 
-    .navbar {
-      height: 90px;
-    }
-    .navbar-brand .display-4 {
-      font-size: 1.5rem;
-    }
-    .nav-item a {
-      font-size: 1.4rem;
-    }
-    .dropdown-item {
-      font-size: 1rem;
-    }
+        .navbar {
+            height: 90px;
+        }
+        .navbar-brand .display-4 {
+            font-size: 1.5rem;
+        }
+        .nav-item a {
+            font-size: 1.4rem;
+        }
+        .dropdown-item {
+            font-size: 1rem;
+        }
 
-    .dow{
-      padding-top: 5%;
-    }
-    .dow h1 {
-      font-size: 3rem; /* Cỡ chữ của h1 */
-    }
+        .dow{
+            padding-top: 5%;
+        }
+        .dow h1 {
+            font-size: 3rem; /* Cỡ chữ của h1 */
+        }
 
-    .dow h2 {
-      font-size: 2rem; /* Cỡ chữ của h1 */
-    }
-    .custom-input {
-      height:3.8rem; /* Độ dài của input */
-      font-size: 1.1rem; /* Cỡ chữ của input */
-width: 75%;
-    }
+        .dow h2 {
+            font-size: 2rem; /* Cỡ chữ của h1 */
+        }
+        .custom-input {
+            height:3.8rem; /* Độ dài của input */
+            font-size: 1.1rem; /* Cỡ chữ của input */
+            width: 75%;
+        }
 
-    .mt-2 button {
-      height: 3.8rem; /* Độ dài của button */
-      font-size: 1.1rem; /* Cỡ chữ của button */
-    }
-    .custom-img {
-      width: 100%;
-      height: auto;
-    }
+        .mt-2 button {
+            height: 3.8rem; /* Độ dài của button */
+            font-size: 1.1rem; /* Cỡ chữ của button */
+        }
+        .custom-img {
+            width: 100%;
+            height: auto;
+        }
 
-    .row .col-12 h2 {
-      font-size: 2rem;
-    }
-    .col-12 p {
-      font-size: 1rem;
-    }
-    .mb-5 form{
-      display: flex;
+        .row .col-12 h2 {
+            font-size: 2rem;
+        }
+        .col-12 p {
+            font-size: 1rem;
+        }
+        .mb-5 form{
+            display: flex;
 
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
-    @media (max-width: 900px) {
-      .nav-item a {
-        font-size: 1.2rem;
-      }
-    .dropdown-menu a{
-      font-size: 0.9rem;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 900px) {
+            .nav-item a {
+                font-size: 1.2rem;
+            }
+            .dropdown-menu a{
+                font-size: 0.9rem;
 
-    }
-      .dropdown-menu{
-        position: relative; /* Đảm bảo dropdown menu xuất hiện đúng vị trí */
-        top: auto; /* Khôi phục vị trí mặc định */
-        left: auto; /* Khôi phục vị trí mặc định */
-        transform: none; /* Khôi phục transform mặc định */
-        width: auto; /* Khôi phục chiều rộng mặc định */
-      }
-    }
-    @media (max-width: 700px) {
-      .navbar {
-        height: 80px;
-      }
-      .navbar-brand .display-4 {
-        font-size: 1.3rem;
-      }
-      .nav-item a {
-        font-size: 1rem;
-      }
-      /*.dropdown-item {*/
-      /*  font-size: 0.6rem;*/
-      /*}*/
-      .dow{
-        padding-top: 5%;
-      }
-      .dow h1 {
-        font-size: 2rem; /* Cỡ chữ của h1 */
-      }
+            }
+            .dropdown-menu{
+                position: relative; /* Đảm bảo dropdown menu xuất hiện đúng vị trí */
+                top: auto; /* Khôi phục vị trí mặc định */
+                left: auto; /* Khôi phục vị trí mặc định */
+                transform: none; /* Khôi phục transform mặc định */
+                width: auto; /* Khôi phục chiều rộng mặc định */
+            }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                height: 80px;
+            }
+            .navbar-brand .display-4 {
+                font-size: 1.3rem;
+            }
+            .nav-item a {
+                font-size: 1rem;
+            }
+            /*.dropdown-item {*/
+            /*  font-size: 0.6rem;*/
+            /*}*/
+            .dow{
+                padding-top: 5%;
+            }
+            .dow h1 {
+                font-size: 2rem; /* Cỡ chữ của h1 */
+            }
 
-      .dow h2 {
-        font-size: 1rem; /* Cỡ chữ của h1 */
-      }
-      .custom-input {
-        height:3rem; /* Độ dài của input */
-        font-size: 1rem; /* Cỡ chữ của input */
+            .dow h2 {
+                font-size: 1rem; /* Cỡ chữ của h1 */
+            }
+            .custom-input {
+                height:3rem; /* Độ dài của input */
+                font-size: 1rem; /* Cỡ chữ của input */
 
-      }
+            }
 
 
-      .custom-img {
-        width: 80%;
-        height: auto;
-      }
+            .custom-img {
+                width: 80%;
+                height: auto;
+            }
 
-      .row .col-12 h2 {
-        font-size: 2rem;
-      }
-      .col-12 p {
-        font-size: 1rem;
-      }
-    }
-    @media (max-width: 600px) {
+            .row .col-12 h2 {
+                font-size: 2rem;
+            }
+            .col-12 p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 600px) {
 
-      .navbar {
-        height: 80px;
-      }
-      .nav-item a {
-        font-size: 0.8rem;
-      }
-      .dow h1 {
-        font-size: 1.8rem; /* Cỡ chữ của h1 */
-      }
+            .navbar {
+                height: 80px;
+            }
+            .nav-item a {
+                font-size: 0.8rem;
+            }
+            .dow h1 {
+                font-size: 1.8rem; /* Cỡ chữ của h1 */
+            }
 
-      .dow h2 {
-        font-size: 1rem; /* Cỡ chữ của h1 */
-      }
-      .mt-2 button {
-        height: 3rem; /* Độ dài của button */
-        font-size: 1rem; /* Cỡ chữ của button */
-        margin-top: 7px ;
-      }
+            .dow h2 {
+                font-size: 1rem; /* Cỡ chữ của h1 */
+            }
+            .mt-2 button {
+                height: 3rem; /* Độ dài của button */
+                font-size: 1rem; /* Cỡ chữ của button */
+                margin-top: 7px ;
+            }
 
-      .mb-5 form{
-        display: flex;
+            .mb-5 form{
+                display: flex;
 
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-    @media (max-width: 400px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 400px) {
 
-    }
-</style>
-  <link rel="apple-touch-icon" sizes="192x192" href="/public/images/ig.png">
-  <link rel="shortcut icon" sizes="192x192" href="/public/images/ig.png">
-  <!--
+        }
+    </style>
+    <link rel="apple-touch-icon" sizes="192x192" href="/public/images/ig.png">
+    <link rel="shortcut icon" sizes="192x192" href="/public/images/ig.png">
+    <!--
 
-    Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
+      Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
+    -->
+    <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
+    <meta name="twitter:title" content="<%= __('twitter_title') %>">
+    <meta name="twitter:description" content="<%= __('twitter_description') %>">
+    <meta name="twitter:image:src" content="https://dotsave.app/assets/img/snapthumb.jpg">
+    <meta name="twitter:site" content="dotsave.app">
+    <!--
+    Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Facebook
   -->
-  <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
-  <meta name="twitter:title" content="<%= __('twitter_title') %>">
-  <meta name="twitter:description" content="<%= __('twitter_description') %>">
-  <meta name="twitter:image:src" content="https://dotsave.app/assets/img/snapthumb.jpg">
-  <meta name="twitter:site" content="dotsave.app">
-  <!--
-  Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Facebook
--->
-  <meta property="og:title" content="<%= __('og_title') %>">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="https://dotsave.app/assets/img/snapthumb.jpg">
-  <meta property="og:description" content="<%= __('og_description') %>">
-  <meta property="og:site_name" content="dotsave.App">
-  <!-- Quy định icon cho thiết bị iphone-->
-  <link rel="apple-touch-icon" sizes="192x192" href="https://dotsave.app/img/icons-192.png">
+    <meta property="og:title" content="<%= __('og_title') %>">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://dotsave.app/assets/img/snapthumb.jpg">
+    <meta property="og:description" content="<%= __('og_description') %>">
+    <meta property="og:site_name" content="dotsave.App">
+    <!-- Quy định icon cho thiết bị iphone-->
+    <link rel="apple-touch-icon" sizes="192x192" href="https://dotsave.app/img/icons-192.png">
 
-  <!--  quy định icon hiển thị trên trình duyệt -->
-  <link rel="shortcut icon" href="https://dotsave.app/assets/img/favicon.png" />
-  <!--  báo hiệu google không dịch nội dung website  -->
-  <meta name="google" content="notranslate" />
-  <!--  liệt kê các phiên bản ngôn ngữ khác mà website hỗ trợ -->
-  <link rel="alternate" hreflang="x-default" href="https://dotsave.app/" />
-  <link rel="alternate" hreflang="en" href="https://dotsave.app/" />
-  <link rel="alternate" hreflang="en-in" href="https://dotsave.app/in">
-  <link rel="alternate" hreflang="vi" href="https://dotsave.app/vn" />
-  <link rel="alternate" hreflang="tr" href="https://dotsave.app/tr" />
-  <link rel="alternate" hreflang="id-ID" href="https://dotsave.app/ID" />
-  <link rel="alternate" hreflang="fr" href="https://dotsave.app/fr" />
-  <link rel="alternate" hreflang="pt" href="https://dotsave.app/pt" />
-  <link rel="alternate" hreflang="ru" href="https://dotsave.app/ru" />
-  <link rel="alternate" hreflang="es" href="https://dotsave.app/es" />
-  <link rel="alternate" hreflang="ms" href="https://dotsave.app/ms" />
-  <link rel="alternate" hreflang="ko" href="https://dotsave.app/ko" />
-  <link rel="alternate" hreflang="ja" href="https://dotsave.app/ja" />
-  <link rel="alternate" hreflang="jv" href="https://dotsave.app/jv" />
-  <link rel="alternate" hreflang="cs" href="https://dotsave.app/cs" />
-  <link rel="alternate" hreflang="de" href="https://dotsave.app/de" />
-  <link rel="alternate" hreflang="it" href="https://dotsave.app/it" />
-  <link rel="alternate" hreflang="pl" href="https://dotsave.app/pl" />
-  <link rel="alternate" hreflang="hu" href="https://dotsave.app/hu" />
-  <link rel="alternate" hreflang="nl" href="https://dotsave.app/nl" />
-  <link rel="alternate" hreflang="ro" href="https://dotsave.app/ro" />
-  <link rel="alternate" hreflang="el" href="https://dotsave.app/el" />
-  <!-- nội dung gốc là trang đang được hiển thị  -->
-  <link rel="canonical" href="https://dotsave.app/" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--  quy định icon hiển thị trên trình duyệt -->
+    <link rel="shortcut icon" href="https://dotsave.app/assets/img/favicon.png" />
+    <!--  báo hiệu google không dịch nội dung website  -->
+    <meta name="google" content="notranslate" />
+    <!--  liệt kê các phiên bản ngôn ngữ khác mà website hỗ trợ -->
+    <link rel="alternate" hreflang="x-default" href="https://dotsave.app/" />
+    <link rel="alternate" hreflang="en" href="https://dotsave.app/" />
+    <link rel="alternate" hreflang="en-in" href="https://dotsave.app/in">
+    <link rel="alternate" hreflang="vi" href="https://dotsave.app/vn" />
+    <link rel="alternate" hreflang="tr" href="https://dotsave.app/tr" />
+    <link rel="alternate" hreflang="id-ID" href="https://dotsave.app/ID" />
+    <link rel="alternate" hreflang="fr" href="https://dotsave.app/fr" />
+    <link rel="alternate" hreflang="pt" href="https://dotsave.app/pt" />
+    <link rel="alternate" hreflang="ru" href="https://dotsave.app/ru" />
+    <link rel="alternate" hreflang="es" href="https://dotsave.app/es" />
+    <link rel="alternate" hreflang="ms" href="https://dotsave.app/ms" />
+    <link rel="alternate" hreflang="ko" href="https://dotsave.app/ko" />
+    <link rel="alternate" hreflang="ja" href="https://dotsave.app/ja" />
+    <link rel="alternate" hreflang="jv" href="https://dotsave.app/jv" />
+    <link rel="alternate" hreflang="cs" href="https://dotsave.app/cs" />
+    <link rel="alternate" hreflang="de" href="https://dotsave.app/de" />
+    <link rel="alternate" hreflang="it" href="https://dotsave.app/it" />
+    <link rel="alternate" hreflang="pl" href="https://dotsave.app/pl" />
+    <link rel="alternate" hreflang="hu" href="https://dotsave.app/hu" />
+    <link rel="alternate" hreflang="nl" href="https://dotsave.app/nl" />
+    <link rel="alternate" hreflang="ro" href="https://dotsave.app/ro" />
+    <link rel="alternate" hreflang="el" href="https://dotsave.app/el" />
+    <!-- nội dung gốc là trang đang được hiển thị  -->
+    <link rel="canonical" href="https://dotsave.app/" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
 </head>
@@ -223,314 +223,314 @@ width: 75%;
 <body   >
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="padding-left: 10%; padding-right: 10%; background:#000000;">
-    <div class="container-fluid">
-      <div class="navbar-brand">
-        <div class="d-flex flex-row justify-content-start align-items-center">
-          <div id="insta" class="fw-bold text-info display-4">Insta</div>
-          <div id="saver" class="fw-bold text-white display-4">Snap</div>
-        </div>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-bold text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              LANGUAGE
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/en">English</a>
-              <a class="dropdown-item" href="/vi">Vietnamese</a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-left: 10%; padding-right: 10%; background:#000000;">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <div class="d-flex flex-row justify-content-start align-items-center">
+                    <div id="insta" class="fw-bold text-info display-4">Insta</div>
+                    <div id="saver" class="fw-bold text-white display-4">Snap</div>
+                </div>
             </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            LANGUAGE
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/en">English</a>
+                            <a class="dropdown-item" href="/vi">Vietnamese</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 <main class="mb-5" style="background: #4a4a4a">
 
-<div class="dow">
-  <h1 class=" text-white text-center fw-bold display-1 "><%= __('h1') %></h1>
-  <h2 class=" text-white text-center fw-medium display-4 "><%= __('h2') %></h2>
+    <div class="dow">
+        <h1 class=" text-white text-center fw-bold display-1 "><%= __('h1') %></h1>
+        <h2 class=" text-white text-center fw-medium display-4 "><%= __('h2') %></h2>
 
-</div>
-<form id="dow2" method="post" action="/download" class="w-100  mt-5 ">
-    <div id="input_container" class="input-group w-50">
-      <input id="link_url" type="text" class="form-control  h-200 custom-input " name="url" required aria-label="Username" aria-describedby="basic-addon1">
-      <span id="paste_link" class="input-group-text  h-200  " id="basic-addon1"><%= __('paste') %></span>
     </div>
-    <div class="mt-2 mt-sm-0 2 h-200">
-      <button id="download_link" type="submit" class="btn btn-info p-3  mx-2  text-white custom-button"><%= __('dow_url') %></button>
-      <button id="loading" style="display:none;" class="btn btn-info p-3  mx-2  text-white custom-button">Loading...</button>
-    </div>
-  </form>
+    <form id="dow2" method="post" action="/download" class="w-100  mt-5 ">
+        <div id="input_container" class="input-group w-50">
+            <input id="link_url" type="text" class="form-control  h-200 custom-input " name="url" required aria-label="Username" aria-describedby="basic-addon1">
+            <span id="paste_link" class="input-group-text  h-200  " id="basic-addon1"><%= __('paste') %></span>
+        </div>
+        <div class="mt-2 mt-sm-0 2 h-200">
+            <button id="download_link" type="submit" class="btn btn-info p-3  mx-2  text-white custom-button"><%= __('dow_url') %></button>
+            <button id="loading" style="display:none;" class="btn btn-info p-3  mx-2  text-white custom-button">Loading...</button>
+        </div>
+    </form>
 
-  <div  style="padding-left: 10%; padding-right: 10%; margin-top: 20rem" >
+    <div  style="padding-left: 10%; padding-right: 10%; margin-top: 20rem" >
 
-    <div class="row g-2 g-sm-2 my-3">
-      <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
-        <img src="https://snapinsta.app/assets/img/thumb/insta-video.webp"
-             class="img-fluid rounded custom-img" alt="...">
-      </div>
-      <div class="col-12 col-md-7">
-        <h2 class="text-white fw-bold display-4 "><%= __('text1_1') %></h2>
-        <p class="text-white "><%= __('text1_2') %></p>
-      </div>
-    </div>
+        <div class="row g-2 g-sm-2 my-3">
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-video.webp"
+                     class="img-fluid rounded custom-img" alt="...">
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="text-white fw-bold display-4 "><%= __('text1_1') %></h2>
+                <p class="text-white "><%= __('text1_2') %></p>
+            </div>
+        </div>
 
-    <div class="row g-2 g-sm-2 my-3">
+        <div class="row g-2 g-sm-2 my-3">
 
-      <div class="col-12 col-md-7">
-        <h2 class="text-white fw-bold display-4 "><%= __('text2_1') %></h2>
-        <p class="text-white "><%= __('text2_2') %></p>
-      </div>
-      <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
-        <img src="https://snapinsta.app/assets/img/thumb/insta-photo.webp"
-             class="img-fluid rounded custom-img" alt="...">
-      </div>
-    </div>
+            <div class="col-12 col-md-7">
+                <h2 class="text-white fw-bold display-4 "><%= __('text2_1') %></h2>
+                <p class="text-white "><%= __('text2_2') %></p>
+            </div>
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-photo.webp"
+                     class="img-fluid rounded custom-img" alt="...">
+            </div>
+        </div>
 
 
-    <div class="row g-2 g-sm-2 my-3">
-      <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
-        <img src="https://snapinsta.app/assets/img/thumb/insta-reels.webp"
-             class="img-fluid rounded custom-img" alt="...">
-      </div>
-      <div class="col-12 col-md-7">
-        <h2 class="text-white fw-bold display-4"><%= __('text3_1') %></h2>
-        <p class="text-white "><%= __('text3_2') %></p>
-      </div>
-    </div>
+        <div class="row g-2 g-sm-2 my-3">
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+                <img src="https://snapinsta.app/assets/img/thumb/insta-reels.webp"
+                     class="img-fluid rounded custom-img" alt="...">
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="text-white fw-bold display-4"><%= __('text3_1') %></h2>
+                <p class="text-white "><%= __('text3_2') %></p>
+            </div>
+        </div>
     </div>
     <h2 class="text-white d-flex justify-content-center mt-3 fw-bold">FAQ</h2>
 
     <div  style="padding-left: 10%; padding-right: 10%;" class="accordion accordion-flush" id="accordionFlushExample">
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne0">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne0" aria-expanded="false"
-                  aria-controls="flush-collapseOne0">
-            <%= __('FQ1_1') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne0" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"><%= __('FQ1_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne0">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne0" aria-expanded="false"
+                        aria-controls="flush-collapseOne0">
+                    <%= __('FQ1_1') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne0" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"><%= __('FQ1_2') %></div>
+            </div>
         </div>
-      </div>
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne1">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne1" aria-expanded="false"
-                  aria-controls="flush-collapseOne1">
-            <%= __('FQ2_1') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne1" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"><%= __('FQ2_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne1" aria-expanded="false"
+                        aria-controls="flush-collapseOne1">
+                    <%= __('FQ2_1') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne1" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"><%= __('FQ2_2') %></div>
+            </div>
         </div>
-      </div>
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne2">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne2" aria-expanded="false"
-                  aria-controls="flush-collapseOne2">
-            <%= __('FQ3_1') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne2" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"> <%= __('FQ3_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne2" aria-expanded="false"
+                        aria-controls="flush-collapseOne2">
+                    <%= __('FQ3_1') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne2" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"> <%= __('FQ3_2') %></div>
+            </div>
         </div>
-      </div>
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne3">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne3" aria-expanded="false"
-                  aria-controls="flush-collapseOne3">
-            <%= __('FQ4_1') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne3" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"> <%= __('FQ4_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne3" aria-expanded="false"
+                        aria-controls="flush-collapseOne3">
+                    <%= __('FQ4_1') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne3" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"> <%= __('FQ4_2') %></div>
+            </div>
         </div>
-      </div>
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne4">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne4" aria-expanded="false"
-                  aria-controls="flush-collapseOne4">
-            <%= __('FQ5_1') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne4" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"><%= __('FQ5_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne4" aria-expanded="false"
+                        aria-controls="flush-collapseOne4">
+                    <%= __('FQ5_1') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne4" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"><%= __('FQ5_2') %></div>
+            </div>
         </div>
-      </div>
 
-      <div class="accordion-item mt-3 border-0">
-        <h2 class="accordion-header" id="flush-headingOne5">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne5" aria-expanded="false"
-                  aria-controls="flush-collapseOne5">
-            <%= __('FQ6_2') %>
-          </button>
-        </h2>
-        <div id="flush-collapseOne5" class="accordion-collapse collapse"
-             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body text-white bg-info"><%= __('FQ6_2') %></div>
+        <div class="accordion-item mt-3 border-0">
+            <h2 class="accordion-header" id="flush-headingOne5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne5" aria-expanded="false"
+                        aria-controls="flush-collapseOne5">
+                    <%= __('FQ6_2') %>
+                </button>
+            </h2>
+            <div id="flush-collapseOne5" class="accordion-collapse collapse"
+                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body text-white bg-info"><%= __('FQ6_2') %></div>
+            </div>
         </div>
-      </div>
 
-<!--      <div class="accordion-item mt-3 border-0">-->
-<!--        <h2 class="accordion-header" id="flush-headingOne6">-->
-<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                  data-bs-target="#flush-collapseOne6" aria-expanded="false"-->
-<!--                  aria-controls="flush-collapseOne6">-->
-<!--            Do I need to pay to use this service?-->
-<!--          </button>-->
-<!--        </h2>-->
-<!--        <div id="flush-collapseOne6" class="accordion-collapse collapse"-->
-<!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
-<!--          <div class="accordion-body text-white bg-info">Not at all! Instagram Video Downloader is completely free to use.</div>-->
-<!--        </div>-->
-<!--      </div>-->
+        <!--      <div class="accordion-item mt-3 border-0">-->
+        <!--        <h2 class="accordion-header" id="flush-headingOne6">-->
+        <!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+        <!--                  data-bs-target="#flush-collapseOne6" aria-expanded="false"-->
+        <!--                  aria-controls="flush-collapseOne6">-->
+        <!--            Do I need to pay to use this service?-->
+        <!--          </button>-->
+        <!--        </h2>-->
+        <!--        <div id="flush-collapseOne6" class="accordion-collapse collapse"-->
+        <!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
+        <!--          <div class="accordion-body text-white bg-info">Not at all! Instagram Video Downloader is completely free to use.</div>-->
+        <!--        </div>-->
+        <!--      </div>-->
 
-<!--      <div class="accordion-item mt-3 border-0">-->
-<!--        <h2 class="accordion-header" id="flush-headingOne7">-->
-<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                  data-bs-target="#flush-collapseOne7" aria-expanded="false"-->
-<!--                  aria-controls="flush-collapseOne7">-->
-<!--            Will there be a watermark on the downloaded videos?-->
-<!--          </button>-->
-<!--        </h2>-->
-<!--        <div id="flush-collapseOne7" class="accordion-collapse collapse"-->
-<!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
-<!--          <div class="accordion-body text-white bg-info">No, Instagram Video Downloader does not add any watermarks to the downloaded videos.</div>-->
-<!--        </div>-->
-<!--      </div>-->
+        <!--      <div class="accordion-item mt-3 border-0">-->
+        <!--        <h2 class="accordion-header" id="flush-headingOne7">-->
+        <!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+        <!--                  data-bs-target="#flush-collapseOne7" aria-expanded="false"-->
+        <!--                  aria-controls="flush-collapseOne7">-->
+        <!--            Will there be a watermark on the downloaded videos?-->
+        <!--          </button>-->
+        <!--        </h2>-->
+        <!--        <div id="flush-collapseOne7" class="accordion-collapse collapse"-->
+        <!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
+        <!--          <div class="accordion-body text-white bg-info">No, Instagram Video Downloader does not add any watermarks to the downloaded videos.</div>-->
+        <!--        </div>-->
+        <!--      </div>-->
 
-<!--      <div class="accordion-item mt-3 border-0">-->
-<!--        <h2 class="accordion-header" id="flush-headingOne8">-->
-<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                  data-bs-target="#flush-collapseOne8" aria-expanded="false"-->
-<!--                  aria-controls="flush-collapseOne8">-->
-<!--            Is there a limit to the number of videos I can download?-->
-<!--          </button>-->
-<!--        </h2>-->
-<!--        <div id="flush-collapseOne8" class="accordion-collapse collapse"-->
-<!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
-<!--          <div class="accordion-body text-white bg-info">No, there&#39;s no limit! You can download as many videos from Instagram as you want without any restrictions.</div>-->
-<!--        </div>-->
-<!--      </div>-->
+        <!--      <div class="accordion-item mt-3 border-0">-->
+        <!--        <h2 class="accordion-header" id="flush-headingOne8">-->
+        <!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+        <!--                  data-bs-target="#flush-collapseOne8" aria-expanded="false"-->
+        <!--                  aria-controls="flush-collapseOne8">-->
+        <!--            Is there a limit to the number of videos I can download?-->
+        <!--          </button>-->
+        <!--        </h2>-->
+        <!--        <div id="flush-collapseOne8" class="accordion-collapse collapse"-->
+        <!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
+        <!--          <div class="accordion-body text-white bg-info">No, there&#39;s no limit! You can download as many videos from Instagram as you want without any restrictions.</div>-->
+        <!--        </div>-->
+        <!--      </div>-->
 
-<!--      <div class="accordion-item mt-3 border-0">-->
-<!--        <h2 class="accordion-header" id="flush-headingOne9">-->
-<!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                  data-bs-target="#flush-collapseOne9" aria-expanded="false"-->
-<!--                  aria-controls="flush-collapseOne9">-->
-<!--            Where are my downloaded videos stored after they are downloaded?-->
-<!--          </button>-->
-<!--        </h2>-->
-<!--        <div id="flush-collapseOne9" class="accordion-collapse collapse"-->
-<!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
-<!--          <div class="accordion-body text-white bg-info">The videos are usually stored in the &#34;Downloads&#34; folder on both Android phones and PCs.</div>-->
-<!--        </div>-->
-<!--      </div>-->
+        <!--      <div class="accordion-item mt-3 border-0">-->
+        <!--        <h2 class="accordion-header" id="flush-headingOne9">-->
+        <!--          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+        <!--                  data-bs-target="#flush-collapseOne9" aria-expanded="false"-->
+        <!--                  aria-controls="flush-collapseOne9">-->
+        <!--            Where are my downloaded videos stored after they are downloaded?-->
+        <!--          </button>-->
+        <!--        </h2>-->
+        <!--        <div id="flush-collapseOne9" class="accordion-collapse collapse"-->
+        <!--             aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">-->
+        <!--          <div class="accordion-body text-white bg-info">The videos are usually stored in the &#34;Downloads&#34; folder on both Android phones and PCs.</div>-->
+        <!--        </div>-->
+        <!--      </div>-->
 
     </div>
 
-  </div>
+    </div>
 
-  </div>
+    </div>
 
 
 </main>
 <script>
-  const loading = document.getElementById("loading");
-  const link_ig = document.getElementById("link_url");
-  const paste_link = document.getElementById("paste_link");
-  const download_link = document.getElementById("download_link");
+    const loading = document.getElementById("loading");
+    const link_ig = document.getElementById("link_url");
+    const paste_link = document.getElementById("paste_link");
+    const download_link = document.getElementById("download_link");
 
-  paste_link.addEventListener("click", async () => {
-    try {
-      link_ig.value = await navigator.clipboard.readText();
-    } catch (e) {
-      console.error("Error pasting from clipboard:", e);
-    }
-  });
+    paste_link.addEventListener("click", async () => {
+        try {
+            link_ig.value = await navigator.clipboard.readText();
+        } catch (e) {
+            console.error("Error pasting from clipboard:", e);
+        }
+    });
 
-  download_link.addEventListener("click", function () {
-    download_link.style.display = "none";
-    loading.style.display = "block";
+    download_link.addEventListener("click", function () {
+        download_link.style.display = "none";
+        loading.style.display = "block";
 
-    if (link_ig.value === "") {
-      download_link.style.display = "block";
-      loading.style.display = "none";
-    }
-
-    setTimeout(function () {
-      download_link.style.display = "block";
-      loading.style.display = "none";
-      link_ig.value = "";
-    }, 30000);
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-
-    var accordionButtons = document.querySelectorAll('.accordion-button');
-
-
-    accordionButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-
-        var target = this.getAttribute('data-bs-target');
-
-
-        var collapse = document.querySelector(target);
-
-
-        var isExpanded = collapse.classList.contains('show');
-
-       if (isExpanded) {
-          collapse.classList.remove('show');
-          this.setAttribute('aria-expanded', 'false');
-        } else {
-          collapse.classList.add('show');
-          this.setAttribute('aria-expanded', 'true');
+        if (link_ig.value === "") {
+            download_link.style.display = "block";
+            loading.style.display = "none";
         }
 
-
-        collapse.style.maxHeight = isExpanded ? null : collapse.scrollHeight + 'px';
-      });
+        setTimeout(function () {
+            download_link.style.display = "block";
+            loading.style.display = "none";
+            link_ig.value = "";
+        }, 30000);
     });
-  });
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   var languageDropdown = document.getElementById('navbarDropdown');
-  //   var navbar = document.querySelector('.navbar');
-  //
-  //   languageDropdown.addEventListener('click', function() {
-  //     navbar.classList.toggle('navbar-expanded');
-  //   });
-  // });
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        var accordionButtons = document.querySelectorAll('.accordion-button');
+
+
+        accordionButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+
+                var target = this.getAttribute('data-bs-target');
+
+
+                var collapse = document.querySelector(target);
+
+
+                var isExpanded = collapse.classList.contains('show');
+
+                if (isExpanded) {
+                    collapse.classList.remove('show');
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    collapse.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+
+
+                collapse.style.maxHeight = isExpanded ? null : collapse.scrollHeight + 'px';
+            });
+        });
+    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   var languageDropdown = document.getElementById('navbarDropdown');
+    //   var navbar = document.querySelector('.navbar');
+    //
+    //   languageDropdown.addEventListener('click', function() {
+    //     navbar.classList.toggle('navbar-expanded');
+    //   });
+    // });
 </script>
 <footer class="text-center text-sm-start" style="background-color: black">
-  <div class="container">
-    <div class="text-center p-4 text-white">
-      © 2024 InstaSnap.me - All rights reserved.
+    <div class="container">
+        <div class="text-center p-4 text-white">
+            © 2024 InstaSnap.me - All rights reserved.
+        </div>
     </div>
-  </div>
 </footer>
 
 
