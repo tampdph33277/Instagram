@@ -8,12 +8,12 @@ const bodyParser = require('body-parser');
 var logger = require('morgan');
 var i18n = require("i18n");
 i18n.configure({
-  locales: [
-    "en",
-    "vi"],
-  directory: __dirname + '/language',
-  cookie: 'lang',
-  header: 'accept-language'
+    locales: [
+        "en",
+        "vi"],
+    directory: __dirname + '/language',
+    cookie: 'lang',
+    header: 'accept-language'
 });
 const glob = require('glob');
 
@@ -40,134 +40,134 @@ app.use('/users', usersRouter);
 
 var language_dict = {};
 glob.sync('../language/*.json').forEach(function (file) {
-  let dash = file.split("/");
-  if (dash.length == 3) {
-    let dot = dash[2].split(".");
-    if (dot.length == 2) {
-      let lang = dot[0];
-      fs.readFile(file, function (err, data) {
-        language_dict[lang] = JSON.parse(data.toString());
-      });
+    let dash = file.split("/");
+    if (dash.length == 3) {
+        let dot = dash[2].split(".");
+        if (dot.length == 2) {
+            let lang = dot[0];
+            fs.readFile(file, function (err, data) {
+                language_dict[lang] = JSON.parse(data.toString());
+            });
+        }
     }
-  }
 });
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ
 app.get('/', function (req, res) {
-  let lang = 'en';
-  i18n.setLocale(req, 'en')
-  res.render('index', {lang: lang})
+    let lang = 'en';
+    i18n.setLocale(req, 'en')
+    res.render('index', {lang: lang})
 })
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
 // ví dụ : https://dotsave.app/en
 app.get('/:lang', function (req, res, next) {
-  // lấy ra địa chỉ truy vấn
-  const q = req.url;
-  // tách ra language code từ địa chỉ truy vấn
-  let dash = q.split("/");
-  let lang = undefined
-  if (dash.length >= 2) {
-    let code = dash[1];
-    console.log(language_dict)
-    console.log('code = ' + code)
-    console.log(language_dict[code])
-    if (code !== '' && language_dict.hasOwnProperty(code)) {
-      lang = code;
-      console.log('AAAA' + lang)
-    } else {
-      next(createError(404))
-      return
+    // lấy ra địa chỉ truy vấn
+    const q = req.url;
+    // tách ra language code từ địa chỉ truy vấn
+    let dash = q.split("/");
+    let lang = undefined
+    if (dash.length >= 2) {
+        let code = dash[1];
+        console.log(language_dict)
+        console.log('code = ' + code)
+        console.log(language_dict[code])
+        if (code !== '' && language_dict.hasOwnProperty(code)) {
+            lang = code;
+            console.log('AAAA' + lang)
+        } else {
+            next(createError(404))
+            return
+        }
     }
-  }
-  if (lang == undefined) lang = 'en'
-  i18n.setLocale(req, lang)
-  res.render('index', {lang: lang})
+    if (lang == undefined) lang = 'en'
+    i18n.setLocale(req, lang)
+    res.render('index', {lang: lang})
 })
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.post("/download", async (req, res) => {
-  const url = req.body.url;
-  if (!url) {
-    return res.status(404).redirect('/');
-  }
-
-  const options = {
-    method: 'POST',
-    url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
-    headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': '16a490b4f8msh223ff679ca0b62fp181abdjsnc4beeb2c44d0',
-      'X-RapidAPI-Host': 'instagram120.p.rapidapi.com'
-    },
-    data: {
-      url: url
-    }
-  };
-
-  try {
-    const response = await axios.request(options);
-    console.log(response.data);
-
-    let mediaData = [];
-
-
-    // // Trích xuất URL ảnh và video từ dữ liệu phản hồi
-    if (response.data && response.data.length > 0) {
-      response.data.forEach(item => {
-        let mediaItem = {
-          pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
-          videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
-          picture: item.pictureUrl,
-
-        };
-        mediaData.push(mediaItem);
-      });
-    }  // Trích xuất URL ảnh và video từ dữ liệu phản hồi
-    // Trích xuất URL ảnh và video từ dữ liệu phản hồi
-    if (response.data && response.data.result && response.data.result.length > 0) {
-      response.data.result.forEach(item => {
-        let video_stos = [];
-        let picture_stos = [];
-
-        // Lấy link video từ video_versions
-        if (item.video_versions && Array.isArray(item.video_versions)) {
-          video_stos = item.video_versions.map(video => video.url);
-          console.log("Video URLs from video_versions:", video_stos);
-        }
-
-        // Lấy link ảnh từ image_versions2
-        if (item.image_versions2 && item.image_versions2.candidates) {
-          picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
-          console.log("Picture URLs from image_versions2:", picture_stos);
-        }
-
-        mediaData.push({
-          video_stos: video_stos,
-          picture_stos: picture_stos
-        });
-      });
+    const url = req.body.url;
+    if (!url) {
+        return res.status(404).redirect('/');
     }
 
-    res.status(200).render('downloader', {mediaData: mediaData});
-    console.log('Media Data:', mediaData);
-  } catch (error) {
-    console.error("Lỗi khi gửi yêu cầu API:", error);
-    return res.status(500).send('Lỗi khi gửi yêu cầu API');
-  }
+    const options = {
+        method: 'POST',
+        url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': '16a490b4f8msh223ff679ca0b62fp181abdjsnc4beeb2c44d0',
+            'X-RapidAPI-Host': 'instagram120.p.rapidapi.com'
+        },
+        data: {
+            url: url
+        }
+    };
+
+    try {
+        const response = await axios.request(options);
+        console.log(response.data);
+
+        let mediaData = [];
+
+
+        // // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+        if (response.data && response.data.length > 0) {
+            response.data.forEach(item => {
+                let mediaItem = {
+                    pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
+                    videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
+                    picture: item.pictureUrl,
+
+                };
+                mediaData.push(mediaItem);
+            });
+        }  // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+        // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+        if (response.data && response.data.result && response.data.result.length > 0) {
+            response.data.result.forEach(item => {
+                let video_stos = [];
+                let picture_stos = [];
+
+                // Lấy link video từ video_versions
+                if (item.video_versions && Array.isArray(item.video_versions)) {
+                    video_stos = item.video_versions.map(video => video.url);
+                    console.log("Video URLs from video_versions:", video_stos);
+                }
+
+                // Lấy link ảnh từ image_versions2
+                if (item.image_versions2 && item.image_versions2.candidates) {
+                    picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
+                    console.log("Picture URLs from image_versions2:", picture_stos);
+                }
+
+                mediaData.push({
+                    video_stos: video_stos,
+                    picture_stos: picture_stos
+                });
+            });
+        }
+
+        res.status(200).render('downloader', {mediaData: mediaData});
+        console.log('Media Data:', mediaData);
+    } catch (error) {
+        console.error("Lỗi khi gửi yêu cầu API:", error);
+        return res.status(500).send('Lỗi khi gửi yêu cầu API');
+    }
 });
 // error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
