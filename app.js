@@ -10,7 +10,12 @@ var i18n = require("i18n");
 i18n.configure({
     locales: [
         "en",
-        "vi"],
+        "vi",
+        "tl",
+        "tq",
+        "sp",
+        "fe",
+        "in"],
     directory: __dirname + '/language',
     cookie: 'lang',
     header: 'accept-language'
@@ -39,8 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 
 var language_dict = {};
-glob.sync('../language/*.json').forEach(function (file) {
-    let dash = file.split("/");
+glob.sync('./language/*.json').forEach(function (file) {
+    let dash = file.split("\\");
     if (dash.length == 3) {
         let dot = dash[2].split(".");
         if (dot.length == 2) {
@@ -89,9 +94,9 @@ app.use(bodyParser.json());
 app.post("/download", async (req, res) => {
     const url = req.body.url;
     if (!url) {
-        return res.status(404).redirect('/');
+        console.error("Lỗi khi gửi yêu cầu API:", error);
+        return res.render("index", { error: "Lỗi khi gửi yêu cầu API" });
     }
-
     const options = {
         method: 'POST',
         url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
@@ -152,8 +157,8 @@ app.post("/download", async (req, res) => {
         res.status(200).render('downloader', {mediaData: mediaData});
         console.log('Media Data:', mediaData);
     } catch (error) {
-        console.error("Lỗi khi gửi yêu cầu API:", error);
-        return res.status(500).send('Lỗi khi gửi yêu cầu API');
+
+        return  res.status(500).render('index',{ error:"Lỗi khiđhh gửi yêu cầu API"});
     }
 });
 // error handler
