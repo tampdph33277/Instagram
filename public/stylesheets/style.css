@@ -1,3 +1,526 @@
 
+.accordion .content {
 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease; /* Adjust transition duration here */
+}
+.accordion .content.show {
+    max-height: 100px; /* Adjust based on content height */
+}
+.accordion-button {
+    background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+    color: #fff; /* Màu chữ của nút accordion */
+    transition: background-color 0.5s ease; /* Hiệu ứng chuyển đổi màu nền */
+}
+.accordion-button::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    float: right;
+    transition: transform 0.5s ease; /* Transition for arrow rotation */
+}
+.accordion-button.collapsed::after {
+    transform: rotate(0deg);
+}
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+
+.navbar {
+    height: 90px;
+}
+.navbar-brand .display-4 {
+    font-size: 2rem;
+}
+.nav-item a {
+    font-size: 1.4rem;
+}
+.dropdown-item {
+    font-size: 1rem;
+}
+#insta{
+    background: linear-gradient(to right,#f44336, #e91e63, #9c27b0);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+#snap{
+    background: linear-gradient(to right, #673ab7, #3f51b5);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+div svg{
+    margin-top: 3px;
+}
+.dow{
+    padding-top: 5%;
+}
+
+.dow h1 {
+    font-size: 2rem; /* Cỡ chữ của h1 */
+}
+
+.dow h2 {
+    font-size: 1.5rem; /* Cỡ chữ của h1 */
+}
+.custom-input {
+    height:3.8rem; /* Độ dài của input */
+    font-size: 1.1rem; /* Cỡ chữ của input */
+    width: 75%;
+}
+#dow2 #input_container{
+    width: 60%;
+}
+.mt-2 button {
+
+    background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
+    height: 3.8rem; /* Độ dài của button */
+    font-size: 1.1rem; /* Cỡ chữ của button */
+}
+.custom-img {
+    width: 100%;
+    height: auto;
+}
+
+.row .col-12 h2 {
+    font-size: 2rem;
+}
+.col-12 p {
+    font-size: 1rem;
+}
+.mb-5 form{
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.hero-tools {
+
+    border-radius: 18px;
+}
+.hero-tools .tool-item {
+
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px; /* Thêm khoảng cách nội dung và border */
+    background-color: rgba(255, 255, 255, 0.5); /* Màu trắng với độ mờ 50% */
+    min-width: 8%;
+    gap: 8px;
+}
+.tool-item span{
+    margin-left: 10px ;
+    margin-bottom: 1px;
+}
+
+.hero-tools .tool-item:first-child {
+    border-left: none;
+    border-radius:10px 0px 0px 10px ;
+}
+.hero-tools .tool-item:last-child {
+
+    border-radius:0px 10px 10px 0px ;
+}
+
+#card_download {
+    max-width: 20rem;
+    padding: 0 !important;
+}
+
+#thumbnail {
+    display: block;
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+    object-position: center
+}
+/* CSS cho các nút download */
+.d-flex .btn-primary {
+    background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+    border: none; /* Bỏ viền */
+    width: 14rem;
+    height: 3rem;
+        border-radius: 5px; /* Bo tròn góc */
+      font-size: 18px; /* Kích thước chữ */
+    display: inline-flex; /* Để sử dụng các thuộc tính căn giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    text-align: center; /* Căn giữa chữ */
+    }
+
+
+
+
+
+@media (max-width: 1084px) {
+    #card_download {
+        width: 18rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 23rem;
+        object-fit: cover;
+        object-position: center
+    }
+}
+
+
+@media (max-width: 991px) {
+    .my-custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+    }
+
+    .dow h1 {
+        font-size: 1.8rem; /* Cỡ chữ của h1 */
+    }
+
+    .dow h2 {
+        font-size: 1.4rem; /* Cỡ chữ của h1 */
+    }
+
+    .navbar-brand .display-4 {
+        font-size: 1.8rem;
+    }
+
+    .mt-2 button {
+        height: 3rem; /* Độ dài của button */
+        font-size: 1.1rem; /* Cỡ chữ của button */
+    }
+
+    header {
+        background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+        transition: height 0.3s ease; /* Áp dụng transition cho cả hai trạng thái */
+        overflow: hidden;
+    }
+
+
+    header {
+        height: 6rem; /* Chiều cao ban đầu của header */
+        background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+    }
+
+    header.expanded {
+        height: 22.5rem; /* Chiều cao của header khi mở rộng */
+        background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+        transition: height 0.7s ease; /* Giảm thời gian transition xuống */
+    }
+
+    .nav-item a {
+        font-size: 1rem;
+    }
+
+    .dropdown-menu a {
+        font-size: 0.9rem;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        background-image: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+    }
+
+
+    .mt-2 button {
+
+        background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
+        height: 3.8rem; /* Độ dài của button */
+        font-size: 1.1rem; /* Cỡ chữ của button */
+    }
+
+
+}
+@media (max-width: 976px) {
+    #card_download {
+        width: 16rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 21rem;
+        object-fit: cover;
+        object-position: center
+    }
+}
+@media (max-width: 871px) {
+    #card_download {
+        width: 14rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 19rem;
+        object-fit: cover;
+        object-position: center
+    }
+    .d-flex .btn-primary {
+
+        width: 10rem;
+        height: 3rem;
+
+
+      font-size: 16px; /* Kích thước chữ */
+    }
+}
+@media (max-width: 764px) {
+    #card_download {
+        width: 13rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 18rem;
+        object-fit: cover;
+        object-position: center
+    }
+}
+@media (max-width: 709px) {
+    #card_download {
+        width: 12rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        object-position: center
+    }
+}
+
+
+    @media (max-width: 700px) {
+
+        .navbar {
+            height: 80px;
+        }
+
+        .navbar-brand .display-4 {
+            font-size: 1.7rem;
+        }
+
+        .nav-item a {
+            font-size: 1rem;
+        }
+
+        .dow {
+            padding-top: 5%;
+        }
+
+        .dow h1 {
+            font-size: 1.4rem; /* Cỡ chữ của h1 */
+        }
+
+        .dow h2 {
+            font-size: 1.2rem; /* Cỡ chữ của h1 */
+        }
+
+        .custom-input {
+            height: 3rem; /* Độ dài của input */
+            font-size: 1rem; /* Cỡ chữ của input */
+
+        }
+
+
+        .custom-img {
+            width: 80%;
+            height: auto;
+        }
+
+        .row .col-12 h2 {
+            font-size: 2rem;
+        }
+
+        .col-12 p {
+            font-size: 1rem;
+        }
+
+    .custom-input {
+        height:3.2rem; /* Độ dài của input */
+        font-size: 1.1rem; /* Cỡ chữ của input */
+        width: 75%;
+    }
+    #dow2 #input_container{
+        width: 70%;
+    }
+    .mt-2 button {
+
+        background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
+        height: 3.2rem; /* Độ dài của button */
+        font-size: 1.1rem; /* Cỡ chữ của button */
+    }
+
+    }
+@media (max-width: 657px) {
+    #card_download {
+        width: 11rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        object-position: center
+    }
+    .d-flex .btn-primary {
+
+        width: 8rem;
+        height: 3rem;
+        font-size: 13px; /* Kích thước chữ */
+    }
+}
+    @media (max-width: 600px) {
+
+        #dow2 #input_container {
+            width: 95%;
+        }
+
+        .navbar {
+            height: 80px;
+        }
+        .navbar-brand .display-4 {
+            font-size: 1.5rem;
+        }
+        .nav-item a {
+            font-size: 0.8rem;
+        }
+
+        .mt-2 button {
+            height: 3rem; /* Độ dài của button */
+            font-size: 1rem; /* Cỡ chữ của button */
+            margin-top: 7px;
+        }
+
+        .mb-5 form {
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .accordion .content {
+
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease; /* Adjust transition duration here */
+        }
+        .accordion .content.show {
+            max-height: 200px; /* Adjust based on content height */
+        }
+    }
+    @media (max-width: 500px) {
+        .dow h1 {
+            font-size: 1.2rem; /* Cỡ chữ của h1 */
+        }
+
+        .dow h2 {
+            font-size: 1rem; /* Cỡ chữ của h1 */
+        }
+        /*#card_download {*/
+        /*    max-width: 13rem;*/
+        /*    padding: 0 !important;*/
+        /*}*/
+
+        /*#thumbnail {*/
+        /*    display: block;*/
+        /*    width: 100%;*/
+        /*    max-height: 21rem;*/
+        /*    object-fit: cover;*/
+        /*    object-position: center*/
+        /*}*/
+}
+@media (max-width: 386px) {
+    #card_download {
+        width: 13.5rem;
+        padding: 0 !important;
+    }
+
+    #thumbnail {
+        display: block;
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        object-position: center
+    }
+}
+
+        @media (max-width: 319px) {
+        .navbar-brand .display-4 {
+            font-size: 1.3rem;
+        }
+        .accordion .content {
+
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease; /* Adjust transition duration here */
+        }
+        .accordion .content.show {
+            max-height: 300px; /* Adjust based on content height */
+        }
+
+    }
+    @media (max-width: 239px) {
+
+        .navbar {
+            height: 90px;
+        }
+        .navbar-brand .display-4 {
+            font-size: 1.2rem;
+        }
+        .nav-item a {
+            font-size: 1rem;
+        }
+        .dropdown-item {
+            font-size: 1rem;
+        }
+        .dow h1 {
+            font-size: 1rem; /* Cỡ chữ của h1 */
+        }
+
+        .dow h2 {
+            font-size: 1rem; /* Cỡ chữ của h1 */
+        }
+        .custom-input {
+            height:2.4rem; /* Độ dài của input */
+            font-size: 1rem; /* Cỡ chữ của input */
+            width: 75%;
+        }
+        #dow2 #input_container{
+            width: 100%;
+        }
+        .mt-2 button {
+
+            background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
+            height: 2.2rem; /* Độ dài của button */
+            font-size: 0.8rem; /* Cỡ chữ của button */
+        }
+        .custom-img {
+            width: 100%;
+            height: auto;
+        }
+        .hero-tools .tool-item {
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 5px; /* Thêm khoảng cách nội dung và border */
+            background-color: rgba(255, 255, 255, 0.5); /* Màu trắng với độ mờ 50% */
+            min-width: 8%;
+            gap: 8px;
+        }
+
+
+    }
 

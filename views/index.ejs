@@ -16,243 +16,10 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6705616556499368"
             crossorigin="anonymous"></script>
-    <style>
 
-        .navbar {
-            height: 90px;
-        }
-        .navbar-brand .display-4 {
-            font-size: 2rem;
-        }
-        .nav-item a {
-            font-size: 1.4rem;
-        }
-        .dropdown-item {
-            font-size: 1rem;
-        }
-        #insta{
-            background: linear-gradient(to right,#f44336, #e91e63, #9c27b0);
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-        }
-        #snap{
-            background: linear-gradient(to right, #673ab7, #3f51b5);
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-        }
-        div svg{
-            margin-top: 3px;
-        }
-        .dow{
-            padding-top: 5%;
-        }
-
-        .dow h1 {
-            font-size: 3rem; /* Cỡ chữ của h1 */
-        }
-
-        .dow h2 {
-            font-size: 2rem; /* Cỡ chữ của h1 */
-        }
-        .custom-input {
-            height:3.8rem; /* Độ dài của input */
-            font-size: 1.1rem; /* Cỡ chữ của input */
-            width: 75%;
-        }
-        #dow2 #input_container{
-            width: 60%;
-        }
-        .mt-2 button {
-
-            background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
-            height: 3.8rem; /* Độ dài của button */
-            font-size: 1.1rem; /* Cỡ chữ của button */
-        }
-        .custom-img {
-            width: 100%;
-            height: auto;
-        }
-
-        .row .col-12 h2 {
-            font-size: 2rem;
-        }
-        .col-12 p {
-            font-size: 1rem;
-        }
-        .mb-5 form{
-            display: flex;
-
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-tools {
-
-            border-radius: 18px;
-        }
-        .hero-tools .tool-item {
-
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 15px; /* Thêm khoảng cách nội dung và border */
-            background-color: rgba(255, 255, 255, 0.5); /* Màu trắng với độ mờ 50% */
-            min-width: 8%;
-            gap: 8px;
-        }
-        .tool-item span{
-            margin-left: 10px ;
-            margin-bottom: 1px;
-        }
-
-        .hero-tools .tool-item:first-child {
-            border-left: none;
-            border-radius:10px 0px 0px 10px ;
-        }
-        .hero-tools .tool-item:last-child {
-
-            border-radius:0px 10px 10px 0px ;
-        }
-        .accordion-button {
-            border-radius: 10px;
-            /* Màu nền của nút accordion */
-            background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);
-            font-weight: bold; /* Độ dày chữ của nút accordion */
-            transition: background 0.3s ease, color 3s ease; /* Thêm transition */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng */
-        }
-        .accordion-collapse {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-
-        }
-
-        @media (max-width: 991px) {
-            .my-custom-toggler .navbar-toggler-icon {
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23000000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-
-            }
-
-            .mt-2 button {
-                height: 3rem; /* Độ dài của button */
-                font-size: 1.1rem; /* Cỡ chữ của button */
-            }
-            header.expanded {
-                height: 22.5rem; /* Điều chỉnh chiều cao tùy theo yêu cầu của bạn */
-                transition: height 5s ease;
-                background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);
-            }
-            .nav-item a {
-                font-size: 1rem;
-            }
-
-            .dropdown-menu a{
-                font-size: 0.9rem;
-
-            }
-            .dropdown-menu {
-                position: relative; /* Đảm bảo dropdown menu xuất hiện đúng vị trí */
-                top: auto; /* Khôi phục vị trí mặc định */
-                left: auto; /* Khôi phục vị trí mặc định */
-                transform: none; /* Khôi phục transform mặc định */
-                width: 15%; /* Khôi phục chiều rộng mặc định */
-
-                background-image: linear-gradient(to right, #ffc5e6, #deb5d7);
-
-
-                border-radius: 0; /* Loại bỏ border-radius */
-            }
-            @media (max-width: 700px) {
-                header.expanded {
-                    height: 22.5rem; /* Điều chỉnh chiều cao tùy theo yêu cầu của bạn */
-                    transition: height 0s ease;
-                    background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);
-                }
-            }
-            .navbar {
-                height: 80px;
-            }
-            .navbar-brand .display-4 {
-                font-size: 1.3rem;
-            }
-            .nav-item a {
-                font-size: 1rem;
-            }
-            /*.dropdown-item {*/
-            /*  font-size: 0.6rem;*/
-            /*}*/
-            .dow{
-                padding-top: 5%;
-            }
-            .dow h1 {
-                font-size: 2rem; /* Cỡ chữ của h1 */
-            }
-
-            .dow h2 {
-                font-size: 1rem; /* Cỡ chữ của h1 */
-            }
-            .custom-input {
-                height:3rem; /* Độ dài của input */
-                font-size: 1rem; /* Cỡ chữ của input */
-
-            }
-
-
-            .custom-img {
-                width: 80%;
-                height: auto;
-            }
-
-            .row .col-12 h2 {
-                font-size: 2rem;
-            }
-            .col-12 p {
-                font-size: 1rem;
-            }
-        }
-        @media (max-width: 600px) {
-            header.expanded {
-                height: 21.5rem; /* Điều chỉnh chiều cao tùy theo yêu cầu của bạn */
-                transition: height 0s ease;
-                background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);
-            }
-            #dow2 #input_container{
-                width: 95%;
-            }
-            .navbar {
-                height: 80px;
-            }
-            .nav-item a {
-                font-size: 0.8rem;
-            }
-            .dow h1 {
-                font-size: 1.8rem; /* Cỡ chữ của h1 */
-            }
-
-            .dow h2 {
-                font-size: 1rem; /* Cỡ chữ của h1 */
-            }
-            .mt-2 button {
-                height: 3rem; /* Độ dài của button */
-                font-size: 1rem; /* Cỡ chữ của button */
-                margin-top: 7px ;
-            }
-
-            .mb-5 form{
-                display: flex;
-
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
-    </style>
-    <link rel="apple-touch-icon" sizes="192x192" href="/public/images/ig.png">
-    <link rel="shortcut icon" sizes="192x192" href="/public/images/ig.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/ig.png">
+    <link rel="shortcut icon" sizes="192x192" href="/images/ig.png">
     <!--
-
       Thẻ quy định nội dung hiển thị khi preview trên mạng xã hội Twitter
     -->
     <meta name="twitter:card" content="<%= __('twitter_card_sumary') %>">
@@ -305,34 +72,29 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-
 </head>
-
-<body   >
-
+<body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="padding-left: 10%; padding-right: 10%; background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);">
+    <nav class="navbar navbar-expand-lg navbar-dark" style=" background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);">
         <div class="container-fluid">
-            <div class="navbar-brand">
+            <div class="navbar-brand" style="padding-left: 10%">
                 <div class="d-flex flex-row justify-content-start align-items-center">
                     <div id="insta" class="fw-bold display-4">Insta</div>
                     <div id="snap" class="fw-bold display-4">Snap</div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg my-custom-toggler">
+            <nav class="navbar navbar-expand-lg my-custom-toggler" style="padding-right: 10%">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="padding-right: 10%"  >
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle fw-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 10%" >
                             LANGUAGE
                         </a>
-                        <div class="dropdown-menu border-0  " id="navbarNav2" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu border-0 " style="padding-left: 10%" id="navbarNav2" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/en">English</a>
                             <a class="dropdown-item" href="/vi">Vietnamese</a>
                             <a class="dropdown-item" href="/fe">Pháp</a>
@@ -346,9 +108,10 @@
         </div>
     </nav>
 </header>
+
 <main class="mb-5" style="background: #fff">
 
-    <div class="dow" style=" padding-bottom:10%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
+    <div class="dow" style=" padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
         <div class="hero-tools d-flex flex-md-row justify-content-center align-content-center  " style="" >
             <div class="tool-item flex-center d-flex flex-md-row justify-content-center align-content-center" data-block="main-heading">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_705_1280)"><path d="M9.91745 7.54857L13.1525 9.4619C13.2459 9.51719 13.3233 9.59587 13.3771 9.6902C13.4309 9.78452 13.4592 9.89124 13.4592 9.99982C13.4592 10.1084 13.4309 10.2151 13.3771 10.3094C13.3233 10.4038 13.2459 10.4824 13.1525 10.5377L9.91745 12.4511C9.82251 12.5073 9.71439 12.5373 9.60407 12.5382C9.49375 12.5391 9.38516 12.5107 9.28934 12.456C9.19352 12.4014 9.11389 12.3223 9.05852 12.2269C9.00316 12.1314 8.97404 12.0231 8.97412 11.9127V8.0869C8.97404 7.97658 9.00316 7.8682 9.05852 7.77277C9.11389 7.67735 9.19352 7.59828 9.28934 7.5436C9.38516 7.48892 9.49375 7.46057 9.60407 7.46145C9.71439 7.46232 9.82251 7.49238 9.91745 7.54857Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M15.8 17.5H5.80005C5.13701 17.5 4.50112 17.2366 4.03228 16.7678C3.56344 16.2989 3.30005 15.663 3.30005 15V5C3.30005 4.33696 3.56344 3.70107 4.03228 3.23223C4.50112 2.76339 5.13701 2.5 5.80005 2.5H15.8C16.4631 2.5 17.099 2.76339 17.5678 3.23223C18.0367 3.70107 18.3 4.33696 18.3 5V15C18.3 15.663 18.0367 16.2989 17.5678 16.7678C17.099 17.2366 16.4631 17.5 15.8 17.5Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></g><defs><clipPath id="clip0_705_1280"><rect width="20" height="20" fill="white" transform="translate(0.800049)" /></clipPath></defs></svg>
@@ -366,11 +129,10 @@
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_705_1399)"><path d="M17.5667 17.5H4.23332C3.79129 17.5 3.36737 17.3244 3.05481 17.0118C2.74225 16.6993 2.56665 16.2754 2.56665 15.8333V4.16667C2.56665 3.72464 2.74225 3.30072 3.05481 2.98816C3.36737 2.67559 3.79129 2.5 4.23332 2.5H17.5667C18.0087 2.5 18.4326 2.67559 18.7452 2.98816C19.0577 3.30072 19.2333 3.72464 19.2333 4.16667V15.8333C19.2333 16.2754 19.0577 16.6993 18.7452 17.0118C18.4326 17.3244 18.0087 17.5 17.5667 17.5Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M2.56665 6.6665H19.2333" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M7.56665 6.66667L8.39998 2.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M13.3999 6.66667L14.2332 2.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></g><defs><clipPath id="clip0_705_1399"><rect width="20" height="20" fill="white" transform="translate(0.899902)" /></clipPath></defs></svg>
                 <span class="d-none d-md-block text-white">Reel</span>
             </div>
-
         </div >
-        <h1 class=" text-white text-center fw-bold display-1 "><%= __('h1') %></h1>
-        <h2 class=" text-white text-center fw-medium display-4 "><%= __('h2') %></h2>
-        <form id="dow2" method="post" action="/download" class="w-100 mt-5 " >
+        <h1 class=" text-white text-center fw-bold display-1 mt-2"><%= __('h1') %></h1>
+        <h2 class=" text-white text-center fw-medium display-4 mb-3"><%= __('h2') %></h2>
+        <form id="dow2" method="post" action="/download" class="w-100 " >
             <div id="input_container" class="input-group ">
                 <input id="link_url" type="text" class="form-control  h-200 custom-input " name="url" required aria-label="Username" aria-describedby="basic-addon1">
                 <span id="paste_link" class="input-group-text  h-200  " id="basic-addon1"><%= __('paste') %></span>
@@ -434,126 +196,94 @@
     </div>
     <h2 class="text-black d-flex justify-content-center mt-3 fw-bold">FAQ</h2>
 
-    <div  style="padding-left: 10%; padding-right: 10%; border-radius: 10px" class="accordion accordion-flush" id="accordionFlushExample">
 
+    <div style="padding-left: 10%; padding-right: 10%; border-radius: 10px" class="accordion" id="accordionExample">
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne0">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne0" aria-expanded="false"
-                        aria-controls="flush-collapseOne0">
+            <h2 class="accordion-header" id="headingOne0">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ1_1') %>
                 </button>
             </h2>
-
-            <div id="flush-collapseOne0" class="accordion-collapse collapse "
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black"><%= __('FQ1_2') %></div>
+            <div class="content" id="collapseOne0">
+                <div class="accordion-body text-black">  <%= __('FQ1_2') %></div>
             </div>
         </div>
-
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne1">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne1" aria-expanded="false"
-                        aria-controls="flush-collapseOne1">
+            <h2 class="accordion-header" id="headingOne1">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ2_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne1" class="accordion-collapse collapse "
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black"><%= __('FQ2_2') %></div>
+            <div class="content" id="collapseOne1">
+                <div class="accordion-body text-black">  <%= __('FQ2_1') %></div>
             </div>
         </div>
-
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne2">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne2" aria-expanded="false"
-                        aria-controls="flush-collapseOne2">
+            <h2 class="accordion-header" id="headingOne3">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ3_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne2" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black "> <%= __('FQ3_2') %></div>
+            <div class="content" id="collapseOne0">
+                <div class="accordion-body text-black">  <%= __('FQ3_1') %></div>
             </div>
         </div>
-
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne3">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne3" aria-expanded="false"
-                        aria-controls="flush-collapseOne3">
+            <h2 class="accordion-header" id="headingOne4">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ4_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne3" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black "> <%= __('FQ4_2') %></div>
+            <div class="content" id="collapseOne1">
+                <div class="accordion-body text-black">  <%= __('FQ4_1') %></div>
             </div>
         </div>
-
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne4">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne4" aria-expanded="false"
-                        aria-controls="flush-collapseOne4">
+            <h2 class="accordion-header" id="headingOne5">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ5_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne4" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black "><%= __('FQ5_2') %></div>
+            <div class="content" id="collapseOne0">
+                <div class="accordion-body text-black">  <%= __('FQ5_1') %></div>
             </div>
         </div>
-
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne5">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne5" aria-expanded="false"
-                        aria-controls="flush-collapseOne5">
+            <h2 class="accordion-header" id="headingOne6">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ6_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne5" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black"><%= __('FQ6_2') %></div>
+            <div class="content" id="collapseOne1">
+                <div class="accordion-body text-black">  <%= __('FQ6_1') %></div>
             </div>
         </div>
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne5">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne5" aria-expanded="false"
-                        aria-controls="flush-collapseOne5">
-                    <%= __('FQ7_2') %>
+            <h2 class="accordion-header" id="headingOne7">
+                <button class="accordion-button collapsed rounded-4" type="button">
+                    <%= __('FQ7_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne5" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black"><%= __('FQ7_2') %></div>
+            <div class="content" id="collapseOne0">
+                <div class="accordion-body text-black">  <%= __('FQ7_1') %></div>
             </div>
         </div>
         <div class="accordion-item mt-3 border-0">
-            <h2 class="accordion-header" id="flush-headingOne5">
-                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne5" aria-expanded="false"
-                        aria-controls="flush-collapseOne5">
+            <h2 class="accordion-header" id="headingOne8">
+                <button class="accordion-button collapsed rounded-4" type="button">
                     <%= __('FQ8_1') %>
                 </button>
             </h2>
-            <div id="flush-collapseOne5" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body text-black"><%= __('FQ8_2') %></div>
+            <div class="content" id="collapseOne1">
+                <div class="accordion-body text-black">  <%= __('FQ8_1') %></div>
             </div>
         </div>
-
+        <!-- Add more accordion items as needed -->
     </div>
 
 
-
-
 </main>
-<script>
+<script >
     const loading = document.getElementById("loading");
     const link_ig = document.getElementById("link_url");
     const paste_link = document.getElementById("paste_link");
@@ -582,29 +312,28 @@
         }, 30000);
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var accordionButtons = document.querySelectorAll('.accordion-button');
-        accordionButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var target = this.getAttribute('data-bs-target');
 
-                var collapse = document.querySelector(target);
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionButtons = document.querySelectorAll('.accordion-button');
 
-                var isExpanded = collapse.classList.contains('show');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const content = button.parentElement.nextElementSibling;
+                const allContents = document.querySelectorAll('.content');
 
-                if (isExpanded) {
-                    collapse.classList.remove('show');
-                    this.setAttribute('aria-expanded', 'false');
-                } else {
-                    collapse.classList.add('show');
-                    this.setAttribute('aria-expanded', 'true');
-                }
+                allContents.forEach(item => {
+                    if (item !== content) {
+                        item.classList.remove('show');
+                        item.previousElementSibling.querySelector('.accordion-button').classList.add('collapsed');
+                    }
+                });
 
-
-                collapse.style.maxHeight = isExpanded ? null : collapse.scrollHeight + 'px';
+                content.classList.toggle('show');
+                button.classList.toggle('collapsed');
             });
         });
     });
+
     document.addEventListener("DOMContentLoaded", function() {
         const navbarToggler = document.querySelector(".navbar-toggler");
         const navbarNav2 = document.querySelector("#navbarNav2");
