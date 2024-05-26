@@ -75,6 +75,7 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style=" background: linear-gradient(to right,  #ffc5e6, #deb5d7, #bfaee3);">
         <div class="container-fluid">
@@ -89,36 +90,40 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-            <div class="collapse navbar-collapse" id="navbarNav" style="padding-right: 10%"  >
+            <div class="collapse navbar-collapse" id="navbarNav"   >
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 10%" >
                             LANGUAGE
                         </a>
-                        <div class="dropdown-menu border-0 " style="padding-left: 10%" id="navbarNav2" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/en">English</a>
-                            <a class="dropdown-item" href="/vi">Vietnamese</a>
-                            <a class="dropdown-item" href="/tr">Turkish (Turkey)</a>
-                            <a class="dropdown-item" href="/id">Indonesia</a>
-                            <a class="dropdown-item" href="/fr">Français</a>
+                        <div class="dropdown-menu  language-dropdown" id="navbarNav2" aria-labelledby="navbarDropdown">
+                            <div>
+                                <a class="dropdown-item" href="/en">English</a>
+                                <a class="dropdown-item" href="/vi">Vietnamese</a>
+                                <a class="dropdown-item" href="/tr">Turkish (Turkey)</a>
+                                <a class="dropdown-item" href="/id">Indonesia</a>
+                                <a class="dropdown-item" href="/fr">Français</a>
+                                <a class="dropdown-item" href="/pt">Português</a>
+                                <a class="dropdown-item" href="/ru">Россия</a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="/es">España</a>
+                                <a class="dropdown-item" href="/ms">Malaysia</a>
+                                <a class="dropdown-item" href="/ko">대한민국</a>
+                                <a class="dropdown-item" href="/js">Jawa</a>
+                                <a class="dropdown-item" href="/js">日本</a>
+                                <a class="dropdown-item" href="/cs">Česká republika</a>
+                                <a class="dropdown-item" href="/de">Deutschland </a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="/it">Italia</a>
+                                <a class="dropdown-item" href="/pl">Polska </a>
+                                <a class="dropdown-item" href="/ju">Magyarország</a>
+                                <a class="dropdown-item" href="/nl">Nederland</a>
+                                <a class="dropdown-item" href="/ro">România</a>
+                                <a class="dropdown-item" href="/el">Ελλάδα</a>
 
-                            <a class="dropdown-item" href="/pt">Português</a>
-                            <a class="dropdown-item" href="/ru">Россия</a>
-                            <a class="dropdown-item" href="/es">España</a>
-                            <a class="dropdown-item" href="/ms">Malaysia</a>
-                            <a class="dropdown-item" href="/ko">대한민국</a>
-
-                            <a class="dropdown-item" href="/js">Jawa</a>
-                            <a class="dropdown-item" href="/js">日本</a>
-                            <a class="dropdown-item" href="/cs">Česká republika</a>
-                            <a class="dropdown-item" href="/de">Deutschland </a>
-                            <a class="dropdown-item" href="/it">Italia</a>
-
-                            <a class="dropdown-item" href="/pl">Polska </a>
-                            <a class="dropdown-item" href="/ju">Magyarország</a>
-                            <a class="dropdown-item" href="/nl">Nederland</a>
-                            <a class="dropdown-item" href="/ro">România</a>
-                            <a class="dropdown-item" href="/el">Ελλάδα</a>
+                            </div>
 
 
 
@@ -129,7 +134,7 @@
         </div>
     </nav>
 </header>
-<main class="mb-5" style="background: #fff">
+<main style="background: #fff">
     <div class="dow" style=" padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
         <h1 class=" text-white text-center fw-bold display-1 "><%= __('h1') %></h1>
         <h2 class=" text-white text-center fw-medium display-4 "><%= __('h2') %></h2>
@@ -157,7 +162,7 @@
                                             <% }); %>
                                         <% } else { %>
                                             <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
-                                            <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
+                                            <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture6</a>
                                         <% } %>
                                     </p>
                                 <% }); %>
@@ -176,7 +181,7 @@
                                         <% }); %>
                                     <% } else { %>
                                         <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
-                                        <a href="<%= media.picture %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
+                                        <a href="https://photo.instasaver.me/?url=<%= media.picture %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
                                     <% } %>
                                 </p>
                             <% } %>
@@ -212,7 +217,7 @@
                                     class="card-img-top"
                                     alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
-                                <a href="<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Video</a>
+                                <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Video</a>
                             </p>
                         </div>
                     <% } %>
@@ -225,6 +230,12 @@
             <% } %>
         </div>
 
+        <div>
+            <a href="/en"
+               class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-600 text-black dowmore">
+                Download more
+            </a>
+        </div>
     </div >
 
 

@@ -110,8 +110,10 @@ app.use(bodyParser.json());
 app.post("/download", async (req, res) => {
     const url = req.body.url;
     if (!url) {
-        console.error("Lỗi khi gửi yêu cầu API:", error);
-        return res.render("index", { error: "Lỗi khi gửi yêu cầu API" });
+        console.error("!url:", error);
+        return  res.status(200).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ" });
+
+
     }
     const options = {
         method: 'POST',
@@ -173,8 +175,14 @@ app.post("/download", async (req, res) => {
         res.status(200).render('downloader', {mediaData: mediaData});
         console.log('Media Data:', mediaData);
     } catch (error) {
-
-        return  res.status(500).render('index',{ error:"Lỗi khiđhh gửi yêu cầu API"});
+        console.log("check",error.message)
+        if (error.response.data.message==="The download link not found.") {
+            // Xử lý lỗi mất kết nối mạng
+            return res.status(200).render('index', { error: 'Link URL quá thời gian phản hồi hoặc không tồn tại' });
+        } else if (error.response.data.message==="The given data was invalid.") {
+            // Xử lý lỗi timeout
+            return res.status(200).render('index', { error: 'Link URL không hợp lệ hoặc không tồn tại' });
+        }
     }
 });
 // error handler
@@ -185,7 +193,6 @@ app.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
     // render the error page
     res.status(err.status || 500);
     res.render('error');

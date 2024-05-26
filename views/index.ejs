@@ -103,7 +103,6 @@
                                 <a class="dropdown-item" href="/tr">Turkish (Turkey)</a>
                                 <a class="dropdown-item" href="/id">Indonesia</a>
                                 <a class="dropdown-item" href="/fr">Français</a>
-
                                 <a class="dropdown-item" href="/pt">Português</a>
                                 <a class="dropdown-item" href="/ru">Россия</a>
                             </div>
@@ -111,7 +110,6 @@
                            <a class="dropdown-item" href="/es">España</a>
                            <a class="dropdown-item" href="/ms">Malaysia</a>
                            <a class="dropdown-item" href="/ko">대한민국</a>
-
                            <a class="dropdown-item" href="/js">Jawa</a>
                            <a class="dropdown-item" href="/js">日本</a>
                            <a class="dropdown-item" href="/cs">Česká republika</a>
@@ -119,7 +117,6 @@
                        </div>
                           <div>
                               <a class="dropdown-item" href="/it">Italia</a>
-
                               <a class="dropdown-item" href="/pl">Polska </a>
                               <a class="dropdown-item" href="/ju">Magyarország</a>
                               <a class="dropdown-item" href="/nl">Nederland</a>
@@ -141,6 +138,14 @@
 <main class="mb-5" style="background: #fff">
 
     <div class="dow" style=" padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="error-message" id="errorMessage">
+                <button class="close-btn" onclick="document.getElementById('errorMessage').style.display='none'">&times;</button>
+                <div class="error-message-content">
+                    <span><%= error %></span>
+                </div>
+            </div>
+        <% } %>
         <div class="hero-tools d-flex flex-md-row justify-content-center align-content-center  " style="" >
             <div class="tool-item flex-center d-flex flex-md-row justify-content-center align-content-center" data-block="main-heading">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_705_1280)"><path d="M9.91745 7.54857L13.1525 9.4619C13.2459 9.51719 13.3233 9.59587 13.3771 9.6902C13.4309 9.78452 13.4592 9.89124 13.4592 9.99982C13.4592 10.1084 13.4309 10.2151 13.3771 10.3094C13.3233 10.4038 13.2459 10.4824 13.1525 10.5377L9.91745 12.4511C9.82251 12.5073 9.71439 12.5373 9.60407 12.5382C9.49375 12.5391 9.38516 12.5107 9.28934 12.456C9.19352 12.4014 9.11389 12.3223 9.05852 12.2269C9.00316 12.1314 8.97404 12.0231 8.97412 11.9127V8.0869C8.97404 7.97658 9.00316 7.8682 9.05852 7.77277C9.11389 7.67735 9.19352 7.59828 9.28934 7.5436C9.38516 7.48892 9.49375 7.46057 9.60407 7.46145C9.71439 7.46232 9.82251 7.49238 9.91745 7.54857Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M15.8 17.5H5.80005C5.13701 17.5 4.50112 17.2366 4.03228 16.7678C3.56344 16.2989 3.30005 15.663 3.30005 15V5C3.30005 4.33696 3.56344 3.70107 4.03228 3.23223C4.50112 2.76339 5.13701 2.5 5.80005 2.5H15.8C16.4631 2.5 17.099 2.76339 17.5678 3.23223C18.0367 3.70107 18.3 4.33696 18.3 5V15C18.3 15.663 18.0367 16.2989 17.5678 16.7678C17.099 17.2366 16.4631 17.5 15.8 17.5Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /></g><defs><clipPath id="clip0_705_1280"><rect width="20" height="20" fill="white" transform="translate(0.800049)" /></clipPath></defs></svg>
@@ -188,12 +193,11 @@
         </div>
 
         <div class="row g-2 g-sm-2 my-3">
-
-            <div class="col-12 col-md-7">
-                <h2 class="text-black fw-bold display-4 "><%= __('text2_1') %></h2>
-                <p class="text-black "><%= __('text2_2') %></p>
+            <div class="col-12 col-md-7 order-2 order-md-1">
+                <h2 class="text-black fw-bold display-4"><%= __('text2_1') %></h2>
+                <p class="text-black"><%= __('text2_2') %></p>
             </div>
-            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center order-1 order-md-2">
                 <img src="https://snapinsta.app/assets/img/thumb/insta-photo.webp"
                      class="img-fluid rounded custom-img" alt="...">
             </div>
@@ -210,14 +214,14 @@
                 <p class="text-black "><%= __('text3_2') %></p>
             </div>
         </div>
-        <div class="row g-2 g-sm-2 my-3">
+        <div class="row g-2 g-sm-2 my-3 row-reverse">
 
-            <div class="col-12 col-md-7">
+            <div class="col-12 col-md-7 order-2 order-md-1">
                 <h2 class="text-black fw-bold display-4 "><%= __('text4_1') %></h2>
                 <p class="text-black "><%= __('text4_2') %></p>
             </div>
-            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center">
-                <img src="https://snapinsta.app/assets/img/thumb/insta-story.webp"
+            <div class="col-12 col-md-5 mb-3 mb-sm-0 d-flex justify-content-center order-1 order-md-2">
+            <img src="https://snapinsta.app/assets/img/thumb/insta-story.webp"
                      class="img-fluid rounded custom-img" alt="...">
             </div>
         </div>
@@ -373,6 +377,13 @@
             header.classList.toggle("expanded");
         });
     });
+    // Hiển thị thông báo lỗi nếu tồn tại
+    window.onload = function() {
+        const errorMessage = document.getElementById('errorMessage');
+        if (errorMessage) {
+            errorMessage.style.display = 'block';
+        }
+    }
 
 </script>
 

@@ -1,3 +1,45 @@
+.error-message {
+    display: none; /* Ẩn mặc định */
+    background-color: #f8d7da;
+    color: #721c24;
+   margin: 0 30% 3rem 30%;
+    width: auto;
+    height: 3rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    position: relative;
+}
+.dowmore{
+    background: linear-gradient(to right, #e6b5dd, #ffc5e6, #b8a4df);
+    margin: 0 10% 0 10%;
+    height: 3rem;
+    width: 80%;
+}
+.error-message-content {
+    display: flex;
+   font-size: 1rem;
+    align-content: center;
+    justify-content: center;
+    margin-top: 0.5rem; /* Khoảng cách giữa nút đóng và thông báo lỗi */
+}
+.error-message .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.dropdown-menu.show {
+    display: grid !important; /* Sử dụng !important để ghi đè lên các quy tắc khác */
+    grid-template-columns: repeat(3, 33.33%); /* Chia cột thành 3 cột bằng nhau */
+    text-align: center;
+ width: 400%;
+    right: 0;
+
+}
 
 .accordion .content {
 
@@ -9,7 +51,8 @@
     max-height: 100px; /* Adjust based on content height */
 }
 .accordion-button {
-    background: linear-gradient(to right, #ffc5e6, #deb5d7, #bfaee3);
+
+    background: linear-gradient(to right, #ffc5e6, #bfaee3, #deb5d7);
     color: #fff; /* Màu chữ của nút accordion */
     transition: background-color 0.5s ease; /* Hiệu ứng chuyển đổi màu nền */
 }
@@ -36,6 +79,7 @@
 }
 .nav-item a {
     font-size: 1.4rem;
+    font-weight:500;
 }
 .dropdown-item {
     font-size: 1rem;
@@ -74,6 +118,7 @@ div svg{
 #dow2 #input_container{
     width: 60%;
 }
+
 .mt-2 button {
 
     background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
@@ -152,8 +197,12 @@ div svg{
 
 
 
+@media (max-width: 1100px) {
+    .error-message {
 
-
+        margin: 0 20% 3rem 20%;
+    }
+}
 @media (max-width: 1084px) {
     #card_download {
         width: 18rem;
@@ -234,11 +283,11 @@ div svg{
     }
 
 
-        .dropdown-menu.show {
-            display: grid !important; /* Sử dụng !important để ghi đè lên các quy tắc khác */
-            grid-template-columns: repeat(3, 33%); /* Chia cột thành 3 cột bằng nhau */
-            text-align: center;
-        }
+        /*.dropdown-menu.show {*/
+        /*    display: grid !important; !* Sử dụng !important để ghi đè lên các quy tắc khác *!*/
+        /*    grid-template-columns: repeat(3, 33%); !* Chia cột thành 3 cột bằng nhau *!*/
+        /*    text-align: center;*/
+        /*}*/
 
     .mt-2 button {
 
@@ -285,6 +334,16 @@ div svg{
       font-size: 16px; /* Kích thước chữ */
     }
 }
+@media (max-width: 764px){
+    .order-md-1 {
+        order: 1;
+    }
+    .order-md-2 {
+        order: 2;
+    }
+
+
+}
 @media (max-width: 764px) {
     #card_download {
         width: 13rem;
@@ -297,6 +356,10 @@ div svg{
         height: 18rem;
         object-fit: cover;
         object-position: center
+    }
+    .error-message {
+
+        margin: 0 15% 3rem 15%;
     }
 }
 @media (max-width: 709px) {
@@ -396,6 +459,15 @@ div svg{
         height: 3rem;
         font-size: 13px; /* Kích thước chữ */
     }
+    .error-message {
+
+        margin: 0 10% 3rem 10%;
+
+
+    }
+    .error-message-content {
+        font-size: 0.9rem;
+    }
 }
     @media (max-width: 600px) {
 
@@ -436,6 +508,7 @@ div svg{
             max-height: 200px; /* Adjust based on content height */
         }
     }
+
     @media (max-width: 500px) {
         .dow h1 {
             font-size: 1.2rem; /* Cỡ chữ của h1 */
@@ -456,6 +529,21 @@ div svg{
         /*    object-fit: cover;*/
         /*    object-position: center*/
         /*}*/
+        .error-message {
+            height: 4rem;
+
+        }
+        .error-message .error-message-content {
+
+            padding: 0 13% 0 10%;
+
+            height: 3rem;
+
+        }
+        .error-message .close-btn {
+            margin-top: 7px;
+        }
+
 }
 @media (max-width: 386px) {
     #card_download {
@@ -469,6 +557,17 @@ div svg{
         height: 15rem;
         object-fit: cover;
         object-position: center
+    }
+    .error-message {
+        height: 4rem;
+
+    }
+    .error-message .error-message-content {
+
+        padding: 0 15% 0 10%;
+
+        height: 3rem;
+
     }
 }
 
@@ -485,22 +584,37 @@ div svg{
         .accordion .content.show {
             max-height: 300px; /* Adjust based on content height */
         }
+            .error-message {
+                height: 5.5rem;
 
+            }
+            .error-message .error-message-content {
+
+                padding: 0 20% 0 10%;
+
+            }
+            .error-message .close-btn {
+                margin-top: 15px;
+            }
     }
     @media (max-width: 239px) {
 
         .navbar {
             height: 90px;
         }
+
         .navbar-brand .display-4 {
             font-size: 1.2rem;
         }
+
         .nav-item a {
             font-size: 1rem;
         }
+
         .dropdown-item {
             font-size: 1rem;
         }
+
         .dow h1 {
             font-size: 1rem; /* Cỡ chữ của h1 */
         }
@@ -508,24 +622,29 @@ div svg{
         .dow h2 {
             font-size: 1rem; /* Cỡ chữ của h1 */
         }
+
         .custom-input {
-            height:2.4rem; /* Độ dài của input */
+            height: 2.4rem; /* Độ dài của input */
             font-size: 1rem; /* Cỡ chữ của input */
             width: 75%;
         }
-        #dow2 #input_container{
+
+        #dow2 #input_container {
             width: 100%;
         }
+
         .mt-2 button {
 
             background: linear-gradient(to right, #8a6fb8, #deb5d7, #bfaee3);
             height: 2.2rem; /* Độ dài của button */
             font-size: 0.8rem; /* Cỡ chữ của button */
         }
+
         .custom-img {
             width: 100%;
             height: auto;
         }
+
         .hero-tools .tool-item {
             border-left: 1px solid rgba(255, 255, 255, 0.2);
             padding: 5px; /* Thêm khoảng cách nội dung và border */
@@ -534,6 +653,6 @@ div svg{
             gap: 8px;
         }
 
-
     }
+
 
