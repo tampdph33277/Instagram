@@ -158,11 +158,11 @@
                                         <% if (hasVideo) { %>
                                             <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
                                             <% media.videoUrls.forEach(function(videoUrl) { %>
-                                                <a href="<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Video</a>
+                                                <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Video</a>
                                             <% }); %>
                                         <% } else { %>
                                             <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
-                                            <a href="<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture6</a>
+                                            <a href="https://photo.instasaver.me/?url=<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
                                         <% } %>
                                     </p>
                                 <% }); %>
@@ -177,7 +177,7 @@
                                     <% if (hasVideo) { %>
                                         <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
                                         <% media.videoUrls.forEach(function(videoUrl) { %>
-                                            <a href="<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold ">Download Video</a>
+                                            <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold ">Download Video</a>
                                         <% }); %>
                                     <% } else { %>
                                         <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
@@ -232,7 +232,7 @@
 
         <div>
             <a href="/en"
-               class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-600 text-black dowmore">
+               class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-bold text-black dowmore">
                 Download more
             </a>
         </div>
