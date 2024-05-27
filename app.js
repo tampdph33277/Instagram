@@ -176,14 +176,27 @@ app.post("/download", async (req, res) => {
         console.log('Media Data:', mediaData);
     } catch (error) {
         console.log("check",error.message)
-        if (error.response.data.message==="The download link not found.") {
-            // Xử lý lỗi mất kết nối mạng
-            return res.status(200).render('index', { error: 'Link URL quá thời gian phản hồi hoặc không tồn tại' });
-        } else if (error.response.data.message==="The given data was invalid.") {
-            // Xử lý lỗi timeout
-            return res.status(200).render('index', { error: 'Link URL không hợp lệ hoặc không tồn tại' });
+        if (error.response) {
+            console.log("Error response data:", error.response.data);
+            console.log("Error response status:", error.response.status);
+            console.log("Error response headers:", error.response.headers);
+
+            if (error.response.data.message === "The download link not found.") {
+                return res.status(200).render('index', { error: 'Link URL quá thời gian phản hồi hoặc không tồn tại' });
+            } else if (error.response.data.message === "The given data was invalid.") {
+                return res.status(200).render('index', { error: 'Link URL không hợp lệ hoặc không tồn tại' });
+            } else {
+                return res.status(200).render('index', { error: 'Link URL không hợp lệ, vui lòng thử lại .' });
+            }
+        } else if (error.request) {
+            console.log("Error request:", error.request);
+            return res.status(200).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.' });
+        } else {
+            console.log("Error", error.message);
+            return res.status(200).render('index', { error: 'Đã xảy ra lỗi khi thiết lập yêu cầu. Vui lòng thử lại sau.' });
         }
     }
+
 });
 // error handler
 app.use(function (req, res, next) {
