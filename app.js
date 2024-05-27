@@ -16,14 +16,12 @@ i18n.configure({
         "fr",
         "pt",
         "ru",
-
         "es",
         "ms",
         "ko",
         "ja",
         "jv",
         "cs",
-
         "de",
         "it",
         "pl",
@@ -59,18 +57,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 
-var language_dict = {};
-glob.sync('../language/*.json').forEach(function (file) {
-    let dash = file.split("\\");
-    if (dash.length == 3) {
-        let dot = dash[2].split(".");
-        if (dot.length == 2) {
-            let lang = dot[0];
-            fs.readFile(file, function (err, data) {
-                language_dict[lang] = JSON.parse(data.toString());
-            });
+const language_dict = {};
+// Sử dụng Promise.all để đợi cho tất cả các lời hứa được giải quyết trước khi tiếp tục
+Promise.all(glob.sync('../language/*.json').map(async (file) => {
+    const dash = file.split(path.sep);
+    console.log("dash " + dash.length)
+    if (dash.length >= 2) {
+        const dot = dash[2].split(".");
+        if (dot.length === 2) {
+            const lang = dot[0];
+            try {
+                const data = await fs.readFile(file, 'utf8');
+                console.log("data - " + data)
+                language_dict[lang] = JSON.parse(data);
+            } catch (err) {
+                console.error(err);
+            }
         }
     }
+})).then(() => {
+    // Ở đây bạn có thể đặt mã xử lý mà bạn muốn thực hiện sau khi tất cả các tệp đã được đọc và xử lý.
+    //console.log(__dirname + '/language/')
+    console.log('All files processed successfully');
+    //console.log(language_dict);
+}).catch((error) => {
+    console.error('Error:', error);
 });
 // viết câu lệnh xử lý khi người dùng truy cập trang chủ
 app.get('/', function (req, res) {
