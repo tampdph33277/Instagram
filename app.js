@@ -78,8 +78,13 @@ app.get('/', function (req, res) {
     i18n.setLocale(req, 'en')
     res.render('index', {lang: lang})
 })
+// app.get('/download', function (req, res) {
+//     let lang = 'en';
+//     i18n.setLocale(req, 'en')
+//     res.render('index', {lang: lang})
+// })
 // viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
-// ví dụ : https://dotsave.app/en
+
 app.get('/:lang', function (req, res, next) {
     // lấy ra địa chỉ truy vấn
     const q = req.url;
@@ -142,7 +147,6 @@ app.post("/download", async (req, res) => {
                     pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
                     videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
                     picture: item.pictureUrl,
-
                 };
                 mediaData.push(mediaItem);
             });
