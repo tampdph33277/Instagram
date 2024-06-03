@@ -7,13 +7,20 @@
 	"og_title": "Download Instagram Videos, Insta Reels, Photos, Stories for Free | Instasnap",
 	"og_description": "Tool to Download Instagram Videos, Reels, Photos, Videos for phone and computer - Best Tool Instagram Downloader",
 	"----": "-----------------------------",
-	"h1": "Instagram Downloader",
-	"h2": "Download Instagram Videos, Photos, Reels, Stories.",
+	"h1_video": "Instagram Video Download",
+	"h2_video": "Download Video Instagram, Photo, Reels, Stories.",
+	"h1_story": "Instagram Story Download",
+	"h2_story": "Enter the Instagram Stories URL below",
+	"h1_reel": "Download Instagram Reels",
+	"h2_reel": "Enter the Instagram Reels URL below",
+	"h1_photo": "Instagram Photo Downloader",
+	"h2_photo": "Enter the Instagram PHOTO URL below",
+
+
 	"label": "Instagram URL:",
 	"paste": "Paste",
 	"dow_url": "Download",
 	".....": "---------------------------",
-
 	"text1_1": "Download Instagram Videos",
 	"text1_2": "InstaSnap was created to allow you to download IG videos for any purpose you want. InstaSnap supports downloading videos for multiple videos from Insta.",
 	"text2_1": "Download Photos from Instagram",
@@ -39,4 +46,5 @@
 	"FQ7_2": "Of course, you can easily download videos, photos, stories, and reels from your PC, Laptop, or tablet.",
 	"FQ8_1": "Where are my videos stored after they are downloaded?",
 	"FQ8_2": "Videos are usually stored in the Downloads folder on Android Phones and PCs."
+
 }
