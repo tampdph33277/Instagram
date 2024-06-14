@@ -16,6 +16,9 @@
   "h1_photo": "Téléchargeur de Photos Instagram",
   "h2_photo": "Entrez l'URL de la Photo Instagram ci-dessous",
 
+  "error1": "L'URL du lien a expiré ou n'existe pas",
+  "error2": "URL de lien invalide ou inexistant",
+  "error3": "URL de lien invalide, veuillez réessayer",
 
 "label": "URL Instagram :",
   "paste": "Coller",

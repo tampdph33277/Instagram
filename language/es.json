@@ -19,6 +19,9 @@
   "paste": "Pegar",
   "dow_url": "Descargar",
   ".....": "---------------------------",
+  "error1": "El URL del enlace ha caducado o no existe",
+  "error2": "URL de enlace inválido o inexistente",
+  "error3": "URL de enlace inválido, por favor, inténtelo de nuevo",
 
   "text1_1": "Descargar Videos de Instagram",
   "text1_2": "InstaSnap fue creado para permitirte descargar videos de IG para cualquier propósito que desees. InstaSnap soporta la descarga de múltiples videos de Insta.",

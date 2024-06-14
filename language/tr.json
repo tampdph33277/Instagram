@@ -19,6 +19,9 @@
   "paste": "Yapıştır",
   "dow_url": "İndir",
   ".....": "---------------------------",
+  "error1": "Bağlantı URL zaman aşımına uğradı veya mevcut değil",
+  "error2": "Geçersiz veya mevcut olmayan Bağlantı URL",
+  "error3": "Geçersiz Bağlantı URL, lütfen yeniden deneyin",
 
   "text1_1": "Instagram Videolarını İndirin",
   "text1_2": "InstaSnap, IG videolarını istediğiniz herhangi bir amaç için indirmenize olanak tanımak için oluşturuldu. InstaSnap, Insta'dan birden fazla video indirmeyi destekler.",

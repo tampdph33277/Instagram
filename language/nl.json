@@ -16,6 +16,9 @@
   "h2_reel": "Voer hieronder de URL van de Instagram Reels in",
   "h1_photo": "Instagram Foto Downloader",
   "h2_photo": "Voer hieronder de URL van de Instagram-foto in",
+  "error1": "Link URL is verlopen of bestaat niet",
+  "error2": "Ongeldige of niet-bestaande Link URL",
+  "error3": "Ongeldige Link URL, probeer het opnieuw",
 
 "label": "Instagram URL:",
   "paste": "Plakken",

@@ -16,6 +16,9 @@
   "h2_reel": "Введите URL Reels Instagram ниже",
   "h1_photo": "Загрузчик фото с Instagram",
   "h2_photo": "Введите URL фото Instagram ниже",
+  "error1": "URL ссылки просрочен или не существует",
+  "error2": "Неверный или несуществующий URL ссылки",
+  "error3": "Недопустимый URL ссылки, пожалуйста, повторите попытку",
 
 "label": "URL Instagram:",
   "paste": "Вставить",

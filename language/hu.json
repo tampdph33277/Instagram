@@ -18,6 +18,10 @@
   "label": "Instagram URL:",
   "paste": "Beilleszt",
   "dow_url": "Letöltés",
+  "error1": "A hivatkozás URL-je lejárt vagy nem létezik",
+  "error2": "Érvénytelen vagy nem létező hivatkozás URL-je",
+  "error3": "Érvénytelen hivatkozás URL, kérjük, próbálja újra",
+
   ".....": "---------------------------",
   "text1_1": "Instagram videók letöltése",
   "text1_2": "Az InstaSnapet az Instagram videók letöltésére hozták létre bármilyen célra. Az InstaSnap támogatja a videók letöltését több videóhoz az Insta-ról.",

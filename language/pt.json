@@ -16,6 +16,9 @@
   "h2_reel": "Insira a URL dos Reels do Instagram abaixo",
   "h1_photo": "Baixador de Fotos do Instagram",
   "h2_photo": "Insira a URL da Foto do Instagram abaixo",
+  "error1": "URL do link expirou ou não existe",
+  "error2": "URL do link inválido ou inexistente",
+  "error3": "URL do link inválido, por favor, tente novamente",
 
 "label": "URL do Instagram:",
   "paste": "Colar",

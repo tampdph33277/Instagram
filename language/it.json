@@ -18,6 +18,10 @@
   "label": "URL di Instagram:",
   "paste": "Incolla",
   "dow_url": "Scarica",
+  "error1": "URL del link scaduto o inesistente",
+  "error2": "URL del link non valido o inesistente",
+  "error3": "URL del link non valido, riprova per favore",
+
   ".....": "---------------------------",
   "text1_1": "Scarica video Instagram",
   "text1_2": "InstaSnap è stato creato per consentirti di scaricare video IG per qualsiasi scopo desideri. InstaSnap supporta il download di video per più video da Insta.",

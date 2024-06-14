@@ -15,7 +15,9 @@
 	"h2_reel": "Enter the Instagram Reels URL below",
 	"h1_photo": "Instagram Photo Downloader",
 	"h2_photo": "Enter the Instagram PHOTO URL below",
-
+	"error1": "Link URL timed out or does not exist",
+	"error2": "Invalid or non-existent Link URL",
+	"error3": "Invalid Link URL, please try again",
 
 	"label": "Instagram URL:",
 	"paste": "Paste",

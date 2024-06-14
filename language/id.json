@@ -19,6 +19,9 @@
   "paste": "Tempel",
   "dow_url": "Unduh",
   ".....": "---------------------------",
+  "error1": "Bağlantı URL zaman aşımına uğradı veya mevcut değil",
+  "error2": "Geçersiz veya mevcut olmayan Bağlantı URL",
+  "error3": "Geçersiz Bağlantı URL, lütfen yeniden deneyin",
 
   "text1_1": "Unduh Video Instagram",
   "text1_2": "InstaSnap dibuat untuk memungkinkan Anda mengunduh video IG untuk tujuan apa pun yang Anda inginkan. InstaSnap mendukung pengunduhan video untuk beberapa video dari Insta.",

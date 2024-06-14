@@ -19,6 +19,9 @@
   "paste": "Tampal",
   "dow_url": "Muat turun",
   ".....": "---------------------------",
+  "error1": "URL pautan tamat atau tidak wujud",
+  "error2": "URL pautan tidak sah atau tidak wujud",
+  "error3": "URL pautan tidak sah, sila cuba lagi",
 
   "text1_1": "Muat turun Video Instagram",
   "text1_2": "InstaSnap dicipta untuk membolehkan anda memuat turun video IG untuk sebarang tujuan yang anda mahu. InstaSnap menyokong muat turun video untuk beberapa video dari Insta.",

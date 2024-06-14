@@ -18,6 +18,10 @@
   "label": "URL Instagram:",
   "paste": "Tempel",
   "dow_url": "Unduh",
+  "error1": "URL tautan kadaluwarsa atau tidak ada",
+  "error2": "URL tautan tidak valid atau tidak ada",
+  "error3": "URL tautan tidak valid, monggo coba meneh",
+
   ".....": "---------------------------",
   "text1_1": "Unduh Video Instagram",
   "text1_2": "InstaSnap diciptakan untuk memungkinkan Anda mengunduh video IG untuk tujuan apa pun yang Anda inginkan. InstaSnap mendukung pengunduhan video untuk beberapa video dari Insta.",

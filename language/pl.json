@@ -18,6 +18,10 @@
   "label": "URL Instagrama:",
   "paste": "Wklej",
   "dow_url": "Pobierz",
+  "error1": "Link URL wygasł lub nie istnieje",
+  "error2": "Nieprawidłowy lub nieistniejący Link URL",
+  "error3": "Nieprawidłowy Link URL, spróbuj ponownie",
+
   ".....": "---------------------------",
   "text1_1": "Pobierz filmy z Instagrama",
   "text1_2": "InstaSnap został stworzony, aby umożliwić Ci pobieranie filmów z IG do dowolnego celu. InstaSnap obsługuje pobieranie filmów dla wielu filmów z Insta.",

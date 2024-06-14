@@ -18,6 +18,10 @@
   "label": "Instagram-URL:",
   "paste": "Einfügen",
   "dow_url": "Herunterladen",
+  "error1": "Link URL ist abgelaufen oder existiert nicht",
+  "error2": "Ungültige oder nicht vorhandene Link-URL",
+  "error3": "Ungültige Link-URL, bitte versuchen Sie es erneut",
+
   ".....": "---------------------------",
   "text1_1": "Laden Sie Instagram-Videos herunter",
   "text1_2": "InstaSnap wurde entwickelt, um Ihnen das Herunterladen von IG-Videos für jeden Zweck zu ermöglichen. InstaSnap unterstützt das Herunterladen von Videos für mehrere Videos von Insta.",

@@ -18,6 +18,10 @@
   "label": "Instagram URL:",
   "paste": "Plakken",
   "dow_url": "Downloaden",
+  "error1": "URL-ul linkului a expirat sau nu există",
+  "error2": "URL de link invalid sau inexistent",
+  "error3": "URL de link invalid, vă rugăm să încercați din nou",
+
   ".....": "---------------------------",
   "text1_1": "Download Instagram Video's",
   "text1_2": "InstaSnap is gemaakt om je in staat te stellen IG-video's te downloaden voor elk doel dat je maar wilt. InstaSnap ondersteunt het downloaden van video's voor meerdere video's van Insta.",

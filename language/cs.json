@@ -18,6 +18,10 @@
   "label": "URL Instagramu:",
   "paste": "Vložit",
   "dow_url": "Stáhnout",
+  "error1": "Odkaz URL vypršel nebo neexistuje",
+  "error2": "Neplatný nebo neexistující odkaz URL",
+  "error3": "Neplatný odkaz URL, zkuste to prosím znovu",
+
   ".....": "---------------------------",
   "text1_1": "Stáhněte si videa z Instagramu",
   "text1_2": "InstaSnap byl vytvořen tak, aby vám umožnil stahovat videa IG pro libovolný účel. InstaSnap podporuje stahování videí pro několik videí z Insta.",

@@ -184,14 +184,14 @@ app.post("/download", async (req, res) => {
             console.log("Error response data:", error.response.data);
             console.log("Error response status:", error.response.status);
             console.log("Error response headers:", error.response.headers);
-
             if (error.response.data.message === "The download link not found.") {
-                return res.status(200).render('index', { error: 'Link URL quá thời gian phản hồi hoặc không tồn tại' });
+                return res.status(200).render('index', { error: error.response.data.message });
             } else if (error.response.data.message === "The given data was invalid.") {
-                return res.status(200).render('index', { error: 'Link URL không hợp lệ hoặc không tồn tại' });
+                return res.status(200).render('index', { error: error.response.data.message });
             } else {
-                return res.status(200).render('index', { error: 'Link URL không hợp lệ, vui lòng thử lại .' });
+                return res.status(200).render('index', { error: 'Link URL không hợp lệ' });
             }
+
         } else if (error.request) {
             console.log("Error request:", error.request);
             return res.status(200).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.' });

@@ -16,6 +16,9 @@
 	"h2_reel": "Nhập URL Reels Instagram bên dưới",
 	"h1_photo": "Tải Ảnh Instagram",
 	"h2_photo": "Nhập URL Ảnh Instagram bên dưới",
+	"error1": "Liên kết URL đã hết thời gian hoặc không tồn tại",
+	"error2": "Liên kết URL không hợp lệ hoặc không tồn tại",
+	"error3": "Liên kết URL không hợp lệ, vui lòng thử lại",
 
 "label": "Instagram URL:",
 	"paste": "Dán",
