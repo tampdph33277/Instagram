@@ -29,7 +29,7 @@ i18n.configure({
         "nl",
         "ro",
         "el",
-        ],
+    ],
     directory: __dirname + '/language',
     cookie: 'lang',
     header: 'accept-language'
@@ -111,15 +111,15 @@ app.get('/:lang', function (req, res, next) {
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
 app.post("/download", async (req, res) => {
     const url = req.body.url;
     if (!url) {
         console.error("!url:", error);
-        return  res.status(200).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ" });
-
-
+        let lang = req.params.lang || 'en'; // Lấy ngôn ngữ từ đường dẫn, mặc định là tiếng Anh nếu không có
+        res.status(400).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ", lang: lang });
+        return;
     }
+
     const options = {
         method: 'POST',
         url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
@@ -139,8 +139,7 @@ app.post("/download", async (req, res) => {
 
         let mediaData = [];
 
-
-        // // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+        // Xử lý dữ liệu phản hồi và trả về trang downloader
         if (response.data && response.data.length > 0) {
             response.data.forEach(item => {
                 let mediaItem = {
@@ -150,60 +149,131 @@ app.post("/download", async (req, res) => {
                 };
                 mediaData.push(mediaItem);
             });
-        }  // Trích xuất URL ảnh và video từ dữ liệu phản hồi
-        // Trích xuất URL ảnh và video từ dữ liệu phản hồi
-        if (response.data && response.data.result && response.data.result.length > 0) {
-            response.data.result.forEach(item => {
-                let video_stos = [];
-                let picture_stos = [];
-
-                // Lấy link video từ video_versions
-                if (item.video_versions && Array.isArray(item.video_versions)) {
-                    video_stos = item.video_versions.map(video => video.url);
-                    console.log("Video URLs from video_versions:", video_stos);
-                }
-
-                // Lấy link ảnh từ image_versions2
-                if (item.image_versions2 && item.image_versions2.candidates) {
-                    picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
-                    console.log("Picture URLs from image_versions2:", picture_stos);
-                }
-
-                mediaData.push({
-                    video_stos: video_stos,
-                    picture_stos: picture_stos
-                });
-            });
         }
 
-
-        res.status(200).render('downloader', {mediaData: mediaData});
+        res.status(200).render('downloader', { mediaData: mediaData, lang: req.params.lang });
         console.log('Media Data:', mediaData);
     } catch (error) {
-        console.log("check",error.message)
-        if (error.response) {
-            console.log("Error response data:", error.response.data);
-            console.log("Error response status:", error.response.status);
-            console.log("Error response headers:", error.response.headers);
-            if (error.response.data.message === "The download link not found.") {
-                return res.status(200).render('index', { error: error.response.data.message });
-            } else if (error.response.data.message === "The given data was invalid.") {
-                return res.status(200).render('index', { error: error.response.data.message });
-            } else {
-                return res.status(200).render('index', { error: 'Link URL không hợp lệ' });
-            }
+        console.log("Error:", error.message);
 
+        if (error.response) {
+            let lang = req.params.lang || 'en'; // Lấy ngôn ngữ từ đường dẫn, mặc định là tiếng Anh nếu không có
+            let errorMessage = error.response.data.message;
+            if (errorMessage === "The download link not found.") {
+                return res.status(404).render('index', { error: errorMessage, lang: lang });
+            } else if (errorMessage === "The given data was invalid.") {
+                return res.status(400).render('index', { error: errorMessage, lang: lang });
+            } else {
+                return res.status(400).render('index', { error: 'Link URL không hợp lệ', lang: lang });
+            }
         } else if (error.request) {
             console.log("Error request:", error.request);
-            return res.status(200).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.' });
+            let lang = req.params.lang || 'en'; // Lấy ngôn ngữ từ đường dẫn, mặc định là tiếng Anh nếu không có
+            return res.status(400).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.', lang: lang });
         } else {
             console.log("Error", error.message);
-            return res.status(200).render('index', { error: 'Đã xảy ra lỗi khi thiết lập yêu cầu. Vui lòng thử lại sau.' });
+            let lang = req.params.lang || 'en'; // Lấy ngôn ngữ từ đường dẫn, mặc định là tiếng Anh nếu không có
+            return res.status(400).render('index', { error: 'Đã xảy ra lỗi khi thiết lập yêu cầu. Vui lòng thử lại sau.', lang: lang });
         }
     }
-
 });
-// error handler
+
+// app.post("/download", async (req, res) => {
+//     const url = req.body.url;
+//     if (!url) {
+//         console.error("!url:", error);
+//         return  res.status(200).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ" });
+//
+//
+//     }
+//     const options = {
+//         method: 'POST',
+//         url: 'https://instagram120.p.rapidapi.com/api/instagram/links',
+//         headers: {
+//             'content-type': 'application/json',
+//             'X-RapidAPI-Key': '16a490b4f8msh223ff679ca0b62fp181abdjsnc4beeb2c44d0',
+//             'X-RapidAPI-Host': 'instagram120.p.rapidapi.com'
+//         },
+//         data: {
+//             url: url
+//         }
+//     };
+//
+//     try {
+//         const response = await axios.request(options);
+//         console.log(response.data);
+//
+//         let mediaData = [];
+//
+//
+//         // // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+//         if (response.data && response.data.length > 0) {
+//             response.data.forEach(item => {
+//                 let mediaItem = {
+//                     pictureUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.jpg')).map(urlObj => urlObj.url) : [],
+//                     videoUrls: item.urls ? item.urls.filter(urlObj => urlObj.url && urlObj.url.includes('.mp4')).map(urlObj => urlObj.url) : [],
+//                     picture: item.pictureUrl,
+//                 };
+//                 mediaData.push(mediaItem);
+//             });
+//         }  // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+//         // Trích xuất URL ảnh và video từ dữ liệu phản hồi
+//         if (response.data && response.data.result && response.data.result.length > 0) {
+//             response.data.result.forEach(item => {
+//                 let video_stos = [];
+//                 let picture_stos = [];
+//
+//                 // Lấy link video từ video_versions
+//                 if (item.video_versions && Array.isArray(item.video_versions)) {
+//                     video_stos = item.video_versions.map(video => video.url);
+//                     console.log("Video URLs from video_versions:", video_stos);
+//                 }
+//
+//                 // Lấy link ảnh từ image_versions2
+//                 if (item.image_versions2 && item.image_versions2.candidates) {
+//                     picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
+//                     console.log("Picture URLs from image_versions2:", picture_stos);
+//                 }
+//
+//                 mediaData.push({
+//                     video_stos: video_stos,
+//                     picture_stos: picture_stos
+//                 });
+//             });
+//         }
+//
+//
+//         res.status(200).render('downloader', {mediaData: mediaData});
+//         console.log('Media Data:', mediaData);
+//     } catch (error) {
+//         console.log("check",error.message)
+//         if (error.response) {
+//             let lang = req.getLocale(); // Lấy ngôn ngữ hiện tại từ i18n
+//             if (!lang) lang = 'en'; // Nếu không có ngôn ngữ xác định, mặc định là tiếng Anh
+//
+//             console.log("Error response data:", error.response.data);
+//             console.log("Error response status:", error.response.status);
+//             console.log("Error response headers:", error.response.headers);
+//             let errorMessage = error.response.data.message;
+//             if (errorMessage === "The download link not found.") {
+//                 return res.status(404).render('index', { error: errorMessage, lang: lang });
+//             } else if (errorMessage === "The given data was invalid.") {
+//                 return res.status(400).render('index', { error: errorMessage, lang: lang });
+//             } else {
+//                 return res.status(400).render('index', { error: 'Link URL không hợp lệ', lang: lang });
+//             }
+//
+//         } else if (error.request) {
+//             console.log("Error request:", error.request);
+//             return res.status(200).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.' });
+//         } else {
+//             console.log("Error", error.message);
+//             return res.status(200).render('index', { error: 'Đã xảy ra lỗi khi thiết lập yêu cầu. Vui lòng thử lại sau.' });
+//         }
+//     }
+//
+// });
+// // error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
@@ -217,3 +287,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
