@@ -1,16 +1,16 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
 const axios = require('axios');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
-const i18n = require("i18n");
+var logger = require('morgan');
+var i18n = require("i18n");
+const glob = require('glob');
 
 i18n.configure({
     locales: [
-        "ja",
         "en",
         "vi",
         "tr",
@@ -21,6 +21,7 @@ i18n.configure({
         "es",
         "ms",
         "ko",
+        "ja",
         "jv",
         "cs",
         "de",
@@ -36,15 +37,14 @@ i18n.configure({
     header: 'accept-language'
 });
 
-const glob = require('glob');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-
-const app = express();
+var app = express();
 
 app.use(i18n.init);
 app.use(express.static('public'));
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -57,13 +57,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 
 const language_dict = {};
-
-glob.sync('../language/*.json').forEach(function (file) {
-    const dash = file.split("/");
-    if (dash.length === 3) {
-        const dot = dash[2].split(".");
-        if (dot.length === 2) {
-            const lang = dot[0];
+// Sử dụng Promise.all để đợi cho tất cả các lời hứa được giải quyết trước khi tiếp tục
+glob.sync('./language/*.json').forEach(function (file) {
+    console.log(file)
+    let dash = file.split("/");
+    if (dash.length == 3) {
+        let dot = dash[2].split(".");
+        if (dot.length == 2) {
+            let lang = dot[0];
             fs.readFile(file, function (err, data) {
                 language_dict[lang] = JSON.parse(data.toString());
             });
@@ -71,19 +72,21 @@ glob.sync('../language/*.json').forEach(function (file) {
     }
 });
 
-// Trang chủ
+// viết câu lệnh xử lý khi người dùng truy cập trang chủ
 app.get('/', function (req, res) {
-    const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
+    let lang = req.cookies.lang || 'en'; // Lấy ngôn ngữ từ cookie hoặc mặc định là 'en'
     i18n.setLocale(req, lang);
-    res.render('index', { lang: lang });
+    res.render('index', { lang: lang, error: null });
 });
 
-// Trang với ngôn ngữ cụ thể
+// viết câu lệnh xử lý khi người dùng truy cập trang có ngôn ngữ cụ thể :
 app.get('/:lang', function (req, res, next) {
-    const code = req.params.lang;
-    if (code !== '' && language_dict.hasOwnProperty(code)) {
-        i18n.setLocale(req, code);
-        res.render('index', { lang: code });
+    // lấy ra địa chỉ truy vấn
+    const lang = req.params.lang;
+    if (language_dict.hasOwnProperty(lang)) {
+        res.cookie('lang', lang, { maxAge: 900000, httpOnly: true }); // Lưu ngôn ngữ vào cookie
+        i18n.setLocale(req, lang);
+        res.render('index', { lang: lang, error: null });
     } else {
         next(createError(404));
     }
@@ -92,12 +95,12 @@ app.get('/:lang', function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Xử lý yêu cầu tải xuống
 app.post("/download", async (req, res) => {
     const url = req.body.url;
+    let lang = req.body.lang || req.cookies.lang || 'en'; // Ưu tiên lấy từ body sau đó từ cookie, nếu không có thì mặc định là 'en'
+
     if (!url) {
-        const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
-        return res.status(400).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ", lang: lang });
+        return res.status(200).render('index', { error: "Link URL không tồn tại hoặc không hợp lệ", lang: lang });
     }
 
     const options = {
@@ -128,42 +131,42 @@ app.post("/download", async (req, res) => {
             });
         }
 
-        const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
+        if (response.data && response.data.result && response.data.result.length > 0) {
+            response.data.result.forEach(item => {
+                let video_stos = [];
+                let picture_stos = [];
+
+                if (item.video_versions && Array.isArray(item.video_versions)) {
+                    video_stos = item.video_versions.map(video => video.url);
+                }
+
+                if (item.image_versions2 && item.image_versions2.candidates) {
+                    picture_stos = item.image_versions2.candidates.map(candidate => candidate.url);
+                }
+
+                mediaData.push({
+                    video_stos: video_stos,
+                    picture_stos: picture_stos
+                });
+            });
+        }
+
         res.status(200).render('downloader', { mediaData: mediaData, lang: lang });
     } catch (error) {
-        console.log("Error:", error.message);
 
-        if (error.response) {
-            const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
-            const errorMessage = error.response.data.message;
-            if (errorMessage === "The download link not found.") {
-                return res.status(404).render('index', { error: errorMessage, lang: lang });
-            } else if (errorMessage === "The given data was invalid.") {
-                return res.status(400).render('index', { error: errorMessage, lang: lang });
-            } else {
-                return res.status(400).render('index', { error: 'Link URL không hợp lệ', lang: lang });
-            }
-        } else if (error.request) {
-            console.log("Error request:", error.request);
-            const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
-            return res.status(400).render('index', { error: 'Không nhận được phản hồi từ máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại.', lang: lang });
-        } else {
-            console.log("Error", error.message);
-            const lang = req.getLocale() || 'en'; // Lấy ngôn ngữ hiện tại từ i18n, mặc định là 'en' nếu không có
-            return res.status(400).render('index', { error: 'Đã xảy ra lỗi khi thiết lập yêu cầu. Vui lòng thử lại sau.', lang: lang });
-        }
     }
 });
 
-// Xử lý lỗi 404
+
+// error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
-
-// Xử lý lỗi chung
 app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // render the error page
     res.status(err.status || 500);
     res.render('error');
 });

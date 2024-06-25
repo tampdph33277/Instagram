@@ -7,7 +7,6 @@
 	"og_title": "Tải Video Instagram, Insta Reels, Photo, Story miễn phí | Instasnap",
 	"og_description": "Công cụ Tải Video Instagram, Reels, Photos, Videos cho điện thoại và máy tính - Best Tool Instagram Downloader",
 	"----": "-----------------------------",
-
 	"h1_video": "Tải Video Instagram",
 	"h2_video": "Tải Video Instagram, Ảnh, Reels, Stories.",
 	"h1_story": "Tải Stories Instagram",
@@ -19,8 +18,7 @@
 	"error1": "Liên kết URL đã hết thời gian hoặc không tồn tại",
 	"error2": "Liên kết URL không hợp lệ hoặc không tồn tại",
 	"error3": "Liên kết URL không hợp lệ, vui lòng thử lại",
-
-"label": "Instagram URL:",
+	"label": "Instagram URL:",
 	"paste": "Dán",
 	"dow_url": "Tải xuống",
 	".....": "---------------------------",
@@ -33,7 +31,6 @@
 	"text4_1": "Tải Instagram Story",
 	"text4_2": "Story trên Instagram là một cách độc đáo để bất kỳ ai cũng có thể chia sẻ cuộc sống hàng ngày của mình bằng ảnh và video với mọi người. Đôi khi bạn muốn lưu trữ một story mình thích nhưng tính năng đó không được hỗ trợ trong ứng dụng. Instasnap được tạo ra để giải quyết vấn đề đó; để giúp mọi người tải xuống các Stories trên Instagram và xem chúng trực tiếp.",
 	"....": "---------------------------",
-
 	"FQ1_1": "Trình tải xuống video trên Instagram là gì?",
 	"FQ1_2": "Đây là một công cụ trực tuyến cho phép bạn tải xuống các cuộn Instagram, ảnh, video. Nếu bạn cần sử dụng nó sau này, Instasnap là công cụ tốt nhất để tải xuống từ Instagram.",
 	"FQ2_1": "Bạn có cần đăng nhập bằng tài khoản Instagram của mình không?",
@@ -49,5 +46,6 @@
 	"FQ7_1": "Trang web có hỗ trợ tải từ Insta cho máy tính không?",
 	"FQ7_2": "Tất nhiên, bạn có thể dễ dàng tải xuống video, ảnh, story và cuộn từ PC, Laptop, máy tính bảng của mình.",
 	"FQ8_1": "Các video của tôi được lưu trữ ở đâu sau khi chúng được tải xuống?",
-	"FQ8_2": "Video thường được lưu trữ trong thư mục Tải xuống trên Điện thoại Android và PC."
+	"FQ8_2": "Video thường được lưu trữ trong thư mục Tải xuống trên Điện thoại Android và PC.",
+
 }

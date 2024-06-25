@@ -18,7 +18,6 @@
 	"error1": "Link URL timed out or does not exist",
 	"error2": "Invalid or non-existent Link URL",
 	"error3": "Invalid Link URL, please try again",
-
 	"label": "Instagram URL:",
 	"paste": "Paste",
 	"dow_url": "Download",
@@ -47,6 +46,6 @@
 	"FQ7_1": "Does the website support downloading from Insta for computers?",
 	"FQ7_2": "Of course, you can easily download videos, photos, stories, and reels from your PC, Laptop, or tablet.",
 	"FQ8_1": "Where are my videos stored after they are downloaded?",
-	"FQ8_2": "Videos are usually stored in the Downloads folder on Android Phones and PCs."
+	"FQ8_2": "Videos are usually stored in the Downloads folder on Android Phones and PCs.",
 
 }
