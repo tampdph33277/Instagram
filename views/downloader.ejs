@@ -1,7 +1,7 @@
 
 
 <!doctype html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
     <title><%= __('title') %></title>
     <meta name="description" content="<%= __('description') %>">
@@ -29,7 +29,7 @@
     <!--  báo hiệu google không dịch nội dung website  -->
     <meta name="google" content="notranslate" />
 
-    <link rel="alternate" hreflang="en" href="https://instasnap.me/" />
+    <link rel="alternate" hreflang="en" href="https://instasnap.me/en" />
    <link rel="alternate" hreflang="vi" href="https://instasnap.me/vn" />
     <link rel="alternate" hreflang="tr" href="https://instasnap.me/tr" />
     <link rel="alternate" hreflang="id-ID" href="https://instasnap.me/id" />
@@ -120,9 +120,9 @@
     </nav>
 </header>
 <main style="background: #fff">
-    <div class="dow" style=" padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
-        <h1 class=" text-white text-center fw-bold display-1 "><%= __('h1_video') %></h1>
-        <h2 class=" text-white text-center fw-medium display-4 m "><%= __('h2_video') %></h2>
+    <div class="dow" style="padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
+        <h1 class="text-white text-center fw-bold display-1"><%= __('FQ1_1') %></h1>
+        <h2 class="text-white text-center fw-medium display-4 m"><%= __('h2_video') %></h2>
         <div class="row align-content-center justify-content-center" style="margin-top: 3%; padding-left:5%;padding-right:5%;gap: 20px">
             <% if (mediaData && mediaData.length > 0) { %>
 
@@ -133,12 +133,7 @@
                             <% let hasVideo = media.videoUrls && media.videoUrls.length > 0; %>
                             <% if (media.pictureUrls && media.pictureUrls.length > 0) { %>
                                 <% media.pictureUrls.forEach(function(pictureUrl) { %>
-                                    <img
-                                            crossorigin="anonymous"
-                                            id="thumbnail"
-                                            src="https://ig.instasaver.me/?url=<%= pictureUrl %>"
-                                            class="card-img-top"
-                                            alt="img...">
+                                    <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= pictureUrl %>" class="card-img-top" alt="img...">
                                     <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
                                         <% if (hasVideo) { %>
                                             <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
@@ -152,17 +147,12 @@
                                     </p>
                                 <% }); %>
                             <% } else if (media.picture) { %>
-                                <img
-                                        crossorigin="anonymous"
-                                        id="thumbnail"
-                                        src="https://ig.instasaver.me/?url=<%= media.picture %>"
-                                        class="card-img-top"
-                                        alt="img...">
+                                <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture %>" class="card-img-top" alt="img...">
                                 <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
                                     <% if (hasVideo) { %>
                                         <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
                                         <% media.videoUrls.forEach(function(videoUrl) { %>
-                                            <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold ">Download Video</a>
+                                            <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Video</a>
                                         <% }); %>
                                     <% } else { %>
                                         <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
@@ -178,12 +168,7 @@
                 <% mediaData.forEach(function(media) { %>
                     <% if (media.picture_stos && media.picture_stos.length > 0) { %>
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
-                            <img
-                                    crossorigin="anonymous"
-                                    id="thumbnail"
-                                    src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>"
-                                    class="card-img-top"
-                                    alt="Story thumbnail">
+                            <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
                                 <a href="https://photo.instasaver.me/?url=<%= media.picture_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Picture</a>
                             </p>
@@ -195,12 +180,7 @@
                 <% mediaData.forEach(function(media) { %>
                     <% if (media.video_stos && media.video_stos.length > 0) { %>
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
-                            <img
-                                    crossorigin="anonymous"
-                                    id="thumbnail"
-                                    src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>"
-                                    class="card-img-top"
-                                    alt="Story thumbnail">
+                            <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
                                 <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Video</a>
                             </p>
@@ -216,16 +196,13 @@
         </div>
 
         <div>
-            <a href="/en"
-               class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-bold text-black dowmore">
+            <a href="/en" class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-bold text-black dowmore">
                 Download more
             </a>
         </div>
-    </div >
-
-
-
+    </div>
 </main>
+
 <script >
     document.addEventListener("DOMContentLoaded", function() {
         const navbarToggler = document.querySelector(".navbar-toggler");
