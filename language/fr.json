@@ -46,6 +46,13 @@
 	"FQ7_1": "Le site Web prend-il en charge le téléchargement depuis Insta pour les ordinateurs ?",
 	"FQ7_2": "Bien sûr, vous pouvez facilement télécharger des vidéos, photos, stories et reels depuis votre PC, ordinateur portable ou tablette.",
 	"FQ8_1": "Où sont stockées mes vidéos après leur téléchargement ?",
-	"FQ8_2": "Les vidéos sont généralement stockées dans le dossier Téléchargements sur les téléphones Android et les PC."
+	"FQ8_2": "Les vidéos sont généralement stockées dans le dossier Téléchargements sur les téléphones Android et les PC.",
 
+	"language": "LANGUE",
+	"Download_Picture": "Télécharger l'image",
+	"Download_Video": "Télécharger la vidéo",
+	"Download_more": "Télécharger plus",
+	"All": "Tous droits réservés.",
+	"Download_Story_Picture": "Télécharger l'image de l'histoire",
+	"Download_Story_Video": "Télécharger la vidéo de l'histoire"
 }

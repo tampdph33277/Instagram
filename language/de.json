@@ -47,5 +47,13 @@
   "FQ7_1": "Unterstützt die Website das Herunterladen von Insta für Computer?",
   "FQ7_2": "Natürlich können Sie Videos, Fotos, Geschichten und Reels einfach von Ihrem PC, Laptop oder Tablet herunterladen.",
   "FQ8_1": "Wo werden meine Videos nach dem Herunterladen gespeichert?",
-  "FQ8_2": "Videos werden normalerweise im Download-Ordner auf Android-Handys und PCs gespeichert."
+  "FQ8_2": "Videos werden normalerweise im Download-Ordner auf Android-Handys und PCs gespeichert.",
+
+  "language": "SPRACHE",
+  "Download_Picture": "Bild herunterladen",
+  "Download_Video": "Video herunterladen",
+  "Download_more": "Mehr herunterladen",
+  "All": "Alle Rechte vorbehalten.",
+  "Download_Story_Picture": "Story-Bild herunterladen",
+  "Download_Story_Video": "Story-Video herunterladen"
 }

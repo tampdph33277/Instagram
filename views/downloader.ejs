@@ -79,7 +79,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 10%" >
-                            LANGUAGE
+                            <%= __('language') %>
                         </a>
                         <div class="dropdown-menu  language-dropdown" id="navbarNav2" aria-labelledby="navbarDropdown">
                             <div>
@@ -121,7 +121,7 @@
 </header>
 <main style="background: #fff">
     <div class="dow" style="padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
-        <h1 class="text-white text-center fw-bold display-1"><%= __('FQ1_1') %></h1>
+        <h1 class="text-white text-center fw-bold display-1"><%= __('h1_video') %></h1>
         <h2 class="text-white text-center fw-medium display-4 m"><%= __('h2_video') %></h2>
         <div class="row align-content-center justify-content-center" style="margin-top: 3%; padding-left:5%;padding-right:5%;gap: 20px">
             <% if (mediaData && mediaData.length > 0) { %>
@@ -138,11 +138,11 @@
                                         <% if (hasVideo) { %>
                                             <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
                                             <% media.videoUrls.forEach(function(videoUrl) { %>
-                                                <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Video</a>
+                                                <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Video') %></a>
                                             <% }); %>
                                         <% } else { %>
                                             <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
-                                            <a href="https://photo.instasaver.me/?url=<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
+                                            <a href="https://photo.instasaver.me/?url=<%= pictureUrl %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold"><%= __('Download_Picture') %></a>
                                         <% } %>
                                     </p>
                                 <% }); %>
@@ -152,11 +152,11 @@
                                     <% if (hasVideo) { %>
                                         <!-- Nếu có video, chỉ hiển thị nút "Download Video" -->
                                         <% media.videoUrls.forEach(function(videoUrl) { %>
-                                            <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Video</a>
+                                            <a href="https://dl.instasaver.me/?url=<%= videoUrl %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Video') %></a>
                                         <% }); %>
                                     <% } else { %>
                                         <!-- Nếu không có video nhưng có ảnh, hiển thị nút "Download Picture" -->
-                                        <a href="https://photo.instasaver.me/?url=<%= media.picture %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold">Download Picture</a>
+                                        <a href="https://photo.instasaver.me/?url=<%= media.picture %>" download class="btn btn-primary btn-sm p-2 text-black fw-bold"><%= __('Download_Picture') %></a>
                                     <% } %>
                                 </p>
                             <% } %>
@@ -170,7 +170,7 @@
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
                             <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
-                                <a href="https://photo.instasaver.me/?url=<%= media.picture_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Picture</a>
+                                <a href="https://photo.instasaver.me/?url=<%= media.picture_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Story_Picture') %></a>
                             </p>
                         </div>
                     <% } %>
@@ -182,7 +182,7 @@
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
                             <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
-                                <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold">Download Story Video</a>
+                                <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Story_Video') %></a>
                             </p>
                         </div>
                     <% } %>
@@ -196,8 +196,8 @@
         </div>
 
         <div>
-            <a href="/en" class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-bold text-black dowmore">
-                Download more
+            <a href="/<%= lang %>" class="justify-content-center align-items-center btn mt-3 btn fs-5 fw-bold text-black dowmore">
+                <%= __('Download_more') %>
             </a>
         </div>
     </div>
@@ -220,7 +220,7 @@
 <footer class="text-center text-sm-start" style=" background: linear-gradient(to right,  #bfaee3, #deb5d7, #ffc5e6);">
     <div class="container">
         <div class="text-center p-4 text-black">
-            © 2024 <a href="https://instasnap.me/" style="text-decoration: none; color: black;"> InstaSnap.me</a>- All rights reserved.
+            © 2024 <a href="https://instasnap.me/" style="text-decoration: none; color: black;"> InstaSnap.me</a>- <%= __('All') %>
         </div>
     </div>
 </footer>

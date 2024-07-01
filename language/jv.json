@@ -47,5 +47,13 @@
   "FQ7_1": "Apakah situs web mendukung pengunduhan dari Insta untuk komputer?",
   "FQ7_2": "Tentu saja, Anda dapat dengan mudah mengunduh video, foto, cerita, dan guliran dari PC, Laptop, atau tablet Anda.",
   "FQ8_1": "Di mana video saya disimpan setelah diunduh?",
-  "FQ8_2": "Video biasanya disimpan di folder Unduhan pada Ponsel Android dan PC."
+  "FQ8_2": "Video biasanya disimpan di folder Unduhan pada Ponsel Android dan PC.",
+
+  "language": "BAHASA",
+  "Download_Picture": "Unduh Gambar",
+  "Download_Video": "Unduh Video",
+  "Download_more": "Unduh lebih",
+  "All": "Semua hak cipta dilindungi.",
+  "Download_Story_Picture": "Unduh Gambar Cerita",
+  "Download_Story_Video": "Unduh Video Cerita"
 }

@@ -47,5 +47,14 @@
   "FQ7_1": "Il sito supporta il download da Insta per computer?",
   "FQ7_2": "Certamente, puoi facilmente scaricare video, foto, storie e Reels dal tuo PC, laptop o tablet.",
   "FQ8_1": "Dove vengono memorizzati i miei video dopo il download?",
-  "FQ8_2": "I video vengono solitamente memorizzati nella cartella Download su telefoni Android e PC."
+  "FQ8_2": "I video vengono solitamente memorizzati nella cartella Download su telefoni Android e PC.",
+
+  "language": "LINGUA",
+  "Download_Picture": "Scarica Immagine",
+  "Download_Video": "Scarica Video",
+  "Download_more": "Scarica altro",
+  "All": "Tutti i diritti riservati.",
+  "Download_Story_Picture": "Scarica Immagine Storia",
+  "Download_Story_Video": "Scarica Video Storia"
 }
+

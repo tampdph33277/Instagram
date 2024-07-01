@@ -33,6 +33,9 @@
   "text4_2": "Instagram'daki hikayeler, herkesin günlük yaşamlarını fotoğraflar ve videolarla paylaşmalarının benzersiz bir yoludur. Bazen beğendiğiniz bir hikayeyi kaydetmek istersiniz ancak bu özellik uygulamada desteklenmez. Instasnap bu sorunu çözmek için oluşturuldu; herkesin Instagram Hikayelerini indirmesine ve doğrudan görüntülemesine yardımcı olmak için.",
   "....": "---------------------------",
 
+
+
+
   "FQ1_1": "Instagram Video İndiricisi nedir?",
   "FQ1_2": "Bu, Instagram makaraları, fotoğraflar ve videolar indirmenizi sağlayan bir çevrimiçi araçtır. Daha sonra kullanmanız gerekirse, Instasnap, Instagram'dan indirmek için en iyi araçtır.",
   "FQ2_1": "Instagram hesabınızla oturum açmanız gerekiyor mu?",
@@ -48,5 +51,12 @@
   "FQ7_1": "Web sitesi bilgisayarlar için Insta'dan indirmeyi destekliyor mu?",
   "FQ7_2": "Elbette, PC, Dizüstü Bilgisayar veya tabletinizden videoları, fotoğrafları, hikayeleri ve makaraları kolayca indirebilirsiniz.",
   "FQ8_1": "İndirildikten sonra videolarım nereye kaydediliyor?",
-  "FQ8_2": "Videolar genellikle Android Telefonlar ve PC'lerdeki İndirilenler klasöründe saklanır."
+  "FQ8_2": "Videolar genellikle Android Telefonlar ve PC'lerdeki İndirilenler klasöründe saklanır.",
+  "language": "DİL",
+  "Download_Picture": "Resmi İndir",
+  "Download_Video": "Video İndir",
+  "Download_more": "Daha fazla indir",
+  "All": "Tüm hakları saklıdır.",
+  "Download_Story_Picture": "Hikaye Resmi İndir",
+  "Download_Story_Video": "Hikaye Video İndir"
 }

@@ -50,5 +50,12 @@
   "FQ7_1": "O site suporta downloads do Insta para computadores?",
   "FQ7_2": "Claro, você pode facilmente baixar vídeos, fotos, stories e reels do seu PC, laptop ou tablet.",
   "FQ8_1": "Onde meus vídeos são armazenados após serem baixados?",
-  "FQ8_2": "Os vídeos são geralmente armazenados na pasta Downloads em telefones Android e PCs."
+  "FQ8_2": "Os vídeos são geralmente armazenados na pasta Downloads em telefones Android e PCs.",
+  "language": "IDIOMA",
+  "Download_Picture": "Baixar Imagem",
+  "Download_Video": "Baixar Vídeo",
+  "Download_more": "Baixar mais",
+  "All": "Todos os direitos reservados.",
+  "Download_Story_Picture": "Baixar Imagem da História",
+  "Download_Story_Video": "Baixar Vídeo da História"
 }

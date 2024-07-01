@@ -48,5 +48,13 @@
   "FQ7_1": "¿El sitio web soporta descargas de Insta para computadoras?",
   "FQ7_2": "Por supuesto, puedes descargar fácilmente videos, fotos, historias y reels desde tu PC, laptop o tableta.",
   "FQ8_1": "¿Dónde se almacenan mis videos después de descargarlos?",
-  "FQ8_2": "Los videos generalmente se almacenan en la carpeta de Descargas en teléfonos Android y PC."
+  "FQ8_2": "Los videos generalmente se almacenan en la carpeta de Descargas en teléfonos Android y PC.",
+  "language": "IDIOMA",
+  "Download_Picture": "Descargar Imagen",
+  "Download_Video": "Descargar Video",
+  "Download_more": "Descargar más",
+  "All": "Todos los derechos reservados.",
+  "Download_Story_Picture": "Descargar Imagen de Historia",
+  "Download_Story_Video": "Descargar Video de Historia"
 }
+

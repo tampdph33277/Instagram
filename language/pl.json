@@ -47,5 +47,15 @@
   "FQ7_1": "Czy strona obsługuje pobieranie z Instagrama na komputery?",
   "FQ7_2": "Oczywiście, możesz łatwo pobierać filmy, zdjęcia, historie i Reels z komputera, laptopa lub tabletu.",
   "FQ8_1": "Gdzie są przechowywane moje filmy po pobraniu?",
-  "FQ8_2": "Filmy zwykle są przechowywane w folderze Pobrane na telefonach z systemem Android i komputerach."
+  "FQ8_2": "Filmy zwykle są przechowywane w folderze Pobrane na telefonach z systemem Android i komputerach.",
+
+
+  "language": "JĘZYK",
+  "Download_Picture": "Pobierz obraz",
+  "Download_Video": "Pobierz wideo",
+  "Download_more": "Pobierz więcej",
+  "All": "Wszelkie prawa zastrzeżone.",
+  "Download_Story_Picture": "Pobierz obraz historii",
+  "Download_Story_Video": "Pobierz wideo historii"
 }
+

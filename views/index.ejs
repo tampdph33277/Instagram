@@ -74,7 +74,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fw-bold text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left: 10%" >
-                            LANGUAGE
+                            <%= __('language') %>
                         </a>
                         <div class="dropdown-menu  language-dropdown" id="navbarNav2" aria-labelledby="navbarDropdown">
                             <div>
@@ -333,8 +333,6 @@
             link_ig.value = "";
         }, 30000);
     });
-
-
     document.addEventListener('DOMContentLoaded', function () {
         const accordionButtons = document.querySelectorAll('.accordion-button');
 
@@ -366,31 +364,20 @@
             header.classList.toggle("expanded");
         });
     });
+
     function validateInstagramURL(url) {
-        const regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(instagram\.com\/p\/[A-Za-z0-9_\-]+)/;
+        const regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(instagram\.com\/(?:p|stories)\/[A-Za-z0-9_\-\/]+)/;
         return regex.test(url);
     }
 
     function showError(errorType) {
         const errorSpan = document.getElementById('errorSpan');
-        errorSpan.innerHTML = translations_erro[errorType].span; // Use translations_erro to access the correct error message
+        errorSpan.innerHTML = translations_erro[errorType].span;
 
         const errorMessageDiv = document.getElementById('errorMessage');
         errorMessageDiv.style.display = 'block';
     }
 
-
-    // if (validateInstagramURL(url)) {
-    //     document.getElementById('loading').style.display = 'block';
-    //     document.getElementById('download_link').style.display = 'none';
-    //     // Proceed with form submission
-    //     console.log("URL is valid");
-    //     event.target.submit();
-    // } else {
-    //     showError("erro1"); // Hoặc showError("erro2") tùy vào trường hợp
-    //     console.log("URL is invalid");
-    //
-    // }
     function stopLoading() {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('download_link').style.display = 'block';
@@ -404,23 +391,50 @@
         if (validateInstagramURL(url)) {
             document.getElementById('loading').style.display = 'block';
             document.getElementById('download_link').style.display = 'none';
-            // Proceed with form submission
-            console.log("URL is valid");
-            event.target.submit();
+
+            // Simulate submission delay (replace with actual form submission logic)
+            setTimeout(function() {
+                // Check if the story link has expired (pseudo code)
+                if (isStoryExpired(url)) {
+                    showError("error2"); // Show error message for expired story
+                    console.log("Story link has expired");
+                    stopLoading(); // Stop loading indicator
+                } else {
+                    console.log("URL is valid");
+                    stopLoading(); // Stop loading indicator
+                    event.target.submit(); // Proceed with form submission
+                }
+            }, 2000); // Replace 2000 with your desired delay in milliseconds
         } else {
-            showError("erro1"); // Show error message for invalid URL
+            showError("error1"); // Show error message for invalid URL
             console.log("URL is invalid");
-            stopLoading()
+            stopLoading(); // Stop loading indicator on error
         }
     }
 
-
+    // Function to check if the story link has expired
+    function isStoryExpired(url) {
+        // Implement logic to check if the story has expired
+        // This can involve fetching the story status from Instagram or using a monitoring system
+        // For demonstration purposes, this is just a placeholder
+        return false; // Assume story never expires for now
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('dow2');
         form.addEventListener('submit', handleFormSubmit);
     });
-    // Hiển thị thông báo lỗi nếu tồn tại
+
+    // Error messages translations
+    const translations_erro = {
+        erro1: {
+            span: '<%= __('error1') %>'
+        },
+        erro2: {
+            span: '<%= __('error2') %>'
+        }
+    };
+
 
 
     const translations = {
@@ -441,14 +455,6 @@
             h2: '<%= __('h2_reel') %>'
         }
     };
-    const translations_erro = {
-        erro1: {
-            span: '<%= __('error1') %>'
-        },
-        erro2: {
-            span: '<%= __('error2') %>'
-        }
-    };
 
     function changeHeading(element) {
         const dynamicHeading = document.getElementById('dynamicHeading');
@@ -464,7 +470,7 @@
 <footer class="text-center text-sm-start" style=" background: linear-gradient(to right,  #bfaee3, #deb5d7, #ffc5e6);">
     <div class="container">
         <div class="text-center p-4 text-black">
-            © 2024 <a href="https://instasnap.me/" style="text-decoration: none; color: black;"> InstaSnap.me</a>- All rights reserved.
+            © 2024 <a href="https://instasnap.me/" style="text-decoration: none; color: black;"> InstaSnap.me</a>- <%= __('All') %>
         </div>
     </div>
 </footer>

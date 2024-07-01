@@ -46,6 +46,12 @@
 	"FQ7_1": "Does the website support downloading from Insta for computers?",
 	"FQ7_2": "Of course, you can easily download videos, photos, stories, and reels from your PC, Laptop, or tablet.",
 	"FQ8_1": "Where are my videos stored after they are downloaded?",
-	"FQ8_2": "Videos are usually stored in the Downloads folder on Android Phones and PCs."
-
+	"FQ8_2": "Videos are usually stored in the Downloads folder on Android Phones and PCs.",
+	"language": "LANGUAGE",
+	"Download_Picture": "Download Picture",
+	"Download_Video": "Download Video",
+	"Download_more": "Download more",
+	"All": "All rights reserved.",
+	"Download_Story_Picture": "Download Story Picture",
+	"Download_Story_Video": "Download Story Video"
 }

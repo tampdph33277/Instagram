@@ -48,5 +48,13 @@
   "FQ7_1": "Ondersteunt de website het downloaden van Insta voor computers?",
   "FQ7_2": "Natuurlijk kun je gemakkelijk video's, foto's, verhalen en reels downloaden vanaf je pc, laptop of tablet.",
   "FQ8_1": "Waar worden mijn video's opgeslagen nadat ze zijn gedownload?",
-  "FQ8_2": "Video's worden meestal opgeslagen in de map Downloads op Android-telefoons en pc's."
+  "FQ8_2": "Video's worden meestal opgeslagen in de map Downloads op Android-telefoons en pc's.",
+
+  "language": "TAAL",
+  "Download_Picture": "Afbeelding downloaden",
+  "Download_Video": "Video downloaden",
+  "Download_more": "Meer downloaden",
+  "All": "Alle rechten voorbehouden.",
+  "Download_Story_Picture": "Afbeelding van verhaal downloaden",
+  "Download_Story_Video": "Video van verhaal downloaden"
 }

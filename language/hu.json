@@ -48,5 +48,13 @@
   "FQ7_1": "Támogatja az oldal az Instagram,Letöltést a számítógépek számára?",
   "FQ7_2": "Természetesen, könnyedén letöltheted a videókat, fotókat, történeteket és Reels-eket a PC-ről, laptopról vagy táblagépről.",
   "FQ8_1": "Hol tárolódnak a videóim letöltésük után?",
-  "FQ8_2": "A videók általában a Letöltések mappában találhatók az Android telefonokon és a PC-kön."
+  "FQ8_2": "A videók általában a Letöltések mappában találhatók az Android telefonokon és a PC-kön.",
+
+  "language": "NYELV",
+  "Download_Picture": "Kép letöltése",
+  "Download_Video": "Videó letöltése",
+  "Download_more": "Több letöltése",
+  "All": "Minden jog fenntartva.",
+  "Download_Story_Picture": "Történeti kép letöltése",
+  "Download_Story_Video": "Történeti videó letöltése"
 }

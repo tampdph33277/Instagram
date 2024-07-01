@@ -47,5 +47,12 @@
   "FQ7_1": "Podporuje web stahování z Insta pro počítače?",
   "FQ7_2": "Samozřejmě, můžete snadno stahovat videa, fotografie, příběhy a reels z PC, notebooku nebo tabletu.",
   "FQ8_1": "Kde jsou moje videa uložena po stažení?",
-  "FQ8_2": "Videa jsou obvykle uložena ve složce Stahování na telefonech s Androidem a PC."
+  "FQ8_2": "Videa jsou obvykle uložena ve složce Stahování na telefonech s Androidem a PC.",
+  "language": "JAZYK",
+  "Download_Picture": "Stáhnout obrázek",
+  "Download_Video": "Stáhnout video",
+  "Download_more": "Stáhnout více",
+  "All": "Všechna práva vyhrazena.",
+  "Download_Story_Picture": "Stáhnout obrázek příběhu",
+  "Download_Story_Video": "Stáhnout video příběhu"
 }
