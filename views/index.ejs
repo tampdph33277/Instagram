@@ -2,7 +2,8 @@
 
 
 <!doctype html>
-<html lang="en">
+<html lang="<%= lang %>">
+
 <head>
     <title><%= __('title') %></title>
     <meta name="description" content="<%= __('description') %>">
@@ -147,16 +148,17 @@
         </div >
             <h1 id="dynamicHeading" class="text-white text-center fw-bold display-1 mt-2"><%= __('h1_video') %></h1>
             <h2 id="dynamicSubheading" class="text-white text-center fw-medium display-4 mb-3"><%= __('h2_video') %></h2>
-            <form id="dow2" method="post" action="/download" class="w-100">
-                <div id="input_container" class="input-group">
-                    <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1">
-                    <span id="paste_link" class="input-group-text h-200" id="basic-addon1"><%= __('paste') %></span>
-                </div>
-                <div class="mt-2 mt-sm-0 2 h-200">
-                    <button id="download_link" type="submit" class="btn btn-info fw-medium mx-2 text-black custom-button"><%= __('dow_url') %></button>
-                    <button id="loading" style="display:none;" class="btn btn-info fw-medium mx-2 text-black custom-button">Loading...</button>
-                </div>
-            </form>
+        <form id="dow2" method="post" action="/download" class="w-100">
+            <div id="input_container" class="input-group">
+                <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1">
+                <span id="paste_link" class="input-group-text h-200" id="basic-addon1"><%= __('paste') %></span>
+            </div>
+            <input type="hidden" name="lang" value="<%= lang %>"> <!-- Hidden input for lang -->
+            <div class="mt-2 mt-sm-0 2 h-200">
+                <button id="download_link" type="submit" class="btn btn-info fw-medium mx-2 text-black custom-button"><%= __('dow_url') %></button>
+                <button id="loading" style="display:none;" class="btn btn-info fw-medium mx-2 text-black custom-button">Loading...</button>
+            </div>
+        </form>
 <!--        <form id="dow2" method="post" action="/download" class="w-100">-->
 <!--            <div id="input_container" class="input-group">-->
 <!--                <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1">-->
