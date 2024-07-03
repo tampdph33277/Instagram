@@ -340,40 +340,34 @@
             download_link.style.display = "block";
             loading.style.display = "none";
             link_ig.value = "";
+            paste_link.innerHTML = "<%= __('paste') %>"; // Reset the paste/clean button
         }, 30000);
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const accordionButtons = document.querySelectorAll('.accordion-button');
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('dow2');
+        form.addEventListener('submit', function(event) {
+            // Check if the URL is valid before submitting
+            const url = link_ig.value;
+            if (validateInstagramURL(url)) {
+                // Proceed with form submission
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('download_link').style.display = 'none';
 
-        accordionButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const content = button.parentElement.nextElementSibling;
-                const allContents = document.querySelectorAll('.content');
-
-                allContents.forEach(item => {
-                    if (item !== content) {
-                        item.classList.remove('show');
-                        item.previousElementSibling.querySelector('.accordion-button').classList.add('collapsed');
-                    }
-                });
-
-                content.classList.toggle('show');
-                button.classList.toggle('collapsed');
-            });
+                // Simulate a delay for demonstration purposes
+                setTimeout(function() {
+                    event.target.submit();
+                    link_ig.value = ""; // Clear the input after form submission
+                    paste_link.innerHTML = "<%= __('paste') %>"; // Reset the paste/clean button
+                }, 2000); // Adjust the delay as needed
+            } else {
+                showError("erro1"); // Show error message for invalid URL
+                console.log("URL is invalid");
+                stopLoading();
+            }
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const navbarToggler = document.querySelector(".navbar-toggler");
-        const navbarNav2 = document.querySelector("#navbarNav2");
-        const header = document.querySelector("header");
-
-        navbarToggler.addEventListener("click", function() {
-            navbarNav2.classList.toggle("show");
-            header.classList.toggle("expanded");
-        });
-    });
     function validateInstagramURL(url) {
         const regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(instagram\.com\/(?:p|stories|reel|tv|shorts)\/[A-Za-z0-9_\-]+)/;
         return regex.test(url);
@@ -402,6 +396,7 @@
         } else {
             showError("erro1"); // Show error message for invalid URL
             console.log("URL is invalid");
+            link_ig.value = ""; // Clear the input after form submission
             stopLoading()
         }
     }
