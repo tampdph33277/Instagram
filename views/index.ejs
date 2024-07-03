@@ -150,27 +150,22 @@
             <h2 id="dynamicSubheading" class="text-white text-center fw-medium display-4 mb-3"><%= __('h2_video') %></h2>
         <form id="dow2" method="post" action="/download" class="w-100">
             <div id="input_container" class="input-group">
-                <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1">
-                <span id="paste_link" class="input-group-text h-200" id="basic-addon1"><%= __('paste') %></span>
+                <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1" placeholder="<%= __('place') %>">
+                <span id="paste_link" class="input-group-text h-200" id="basic-addon1">
+            <i class="fas fa-paste"></i> <%= __('paste') %>
+        </span>
             </div>
             <input type="hidden" name="lang" value="<%= lang %>"> <!-- Hidden input for lang -->
             <div class="mt-2 mt-sm-0 2 h-200">
-                <button id="download_link" type="submit" class="btn btn-info fw-medium mx-2 text-black custom-button"><%= __('dow_url') %></button>
-                <button id="loading" style="display:none;" class="btn btn-info fw-medium mx-2 text-black custom-button">Loading...</button>
+                <button id="download_link" type="submit" class="btn btn-info fw-medium mx-2 text-black custom-button">
+                    <i class="fas fa-download"></i> <%= __('dow_url') %>
+                </button>
+                <button id="loading" style="display:none;" class="btn btn-info fw-medium mx-2 text-black custom-button">
+                    <i class="fas fa-spinner fa-spin"></i> Loading...
+                </button>
             </div>
         </form>
-<!--        <form id="dow2" method="post" action="/download" class="w-100">-->
-<!--            <div id="input_container" class="input-group">-->
-<!--                <input id="link_url" type="text" class="form-control h-200 custom-input" name="url" required aria-label="Username" aria-describedby="basic-addon1">-->
-<!--                <span id="paste_link" class="input-group-text h-200" id="basic-addon1"><%= __('paste') %></span>-->
-<!--                &lt;!&ndash; Thêm trường ngôn ngữ ẩn &ndash;&gt;-->
-<!--                <input type="hidden" name="lang" value="<%= lang %>">-->
-<!--            </div>-->
-<!--            <div class="mt-2 mt-sm-0 2 h-200">-->
-<!--                <button id="download_link" type="submit" class="btn btn-info fw-medium mx-2 text-black custom-button"><%= __('dow_url') %></button>-->
-<!--                <button id="loading" style="display:none;" class="btn btn-info fw-medium mx-2 text-black custom-button">Loading...</button>-->
-<!--            </div>-->
-<!--        </form>-->
+
 
     </div >
 
@@ -314,16 +309,26 @@
     const download_link = document.getElementById("download_link");
 
     paste_link.addEventListener("click", async () => {
+        const pasteIcon = paste_link.querySelector('i');
         if (link_ig.value === "") {
             try {
                 link_ig.value = await navigator.clipboard.readText();
-                paste_link.innerHTML = "<%= __('clean') %>";
+                paste_link.innerHTML = '<i class="fas fa-eraser"></i>  <%= __('clean') %>';
             } catch (e) {
                 console.error("Error pasting from clipboard:", e);
             }
         } else {
             link_ig.value = "";
-            paste_link.innerHTML = "<%= __('paste') %>";
+            paste_link.innerHTML = '<i class="fas fa-paste"></i> <%= __('paste') %>';
+        }
+    });
+
+    // Thêm sự kiện nghe để kiểm tra khi nhập vào input
+    link_ig.addEventListener("input", function() {
+        if (link_ig.value.trim().length > 0) {
+            paste_link.innerHTML = '<i class="fas fa-eraser"></i>  <%= __('clean') %>';
+        } else {
+            paste_link.innerHTML = '<i class="fas fa-paste"></i> <%= __('paste') %>';
         }
     });
 
@@ -340,7 +345,7 @@
             download_link.style.display = "block";
             loading.style.display = "none";
             link_ig.value = "";
-            paste_link.innerHTML = "<%= __('paste') %>"; // Reset the paste/clean button
+            paste_link.innerHTML = '<i class="fas fa-paste"></i> <%= __('paste') %>'; // Reset the paste/clean button
         }, 30000);
     });
 
@@ -358,16 +363,49 @@
                 setTimeout(function() {
                     event.target.submit();
                     link_ig.value = ""; // Clear the input after form submission
-                    paste_link.innerHTML = "<%= __('paste') %>"; // Reset the paste/clean button
+                    paste_link.innerHTML = '<i class="fas fa-paste"></i> <%= __('paste') %>'; // Reset the paste/clean button
                 }, 2000); // Adjust the delay as needed
             } else {
                 showError("erro1"); // Show error message for invalid URL
                 console.log("URL is invalid");
+                link_ig.value = "";
                 stopLoading();
             }
         });
     });
 
+    //////
+    document.addEventListener('DOMContentLoaded', function () {
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const content = button.parentElement.nextElementSibling;
+                const allContents = document.querySelectorAll('.content');
+
+                allContents.forEach(item => {
+                    if (item !== content) {
+                        item.classList.remove('show');
+                        item.previousElementSibling.querySelector('.accordion-button').classList.add('collapsed');
+                    }
+                });
+
+                content.classList.toggle('show');
+                button.classList.toggle('collapsed');
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const navbarNav2 = document.querySelector("#navbarNav2");
+        const header = document.querySelector("header");
+
+        navbarToggler.addEventListener("click", function() {
+            navbarNav2.classList.toggle("show");
+            header.classList.toggle("expanded");
+        });
+    });
     function validateInstagramURL(url) {
         const regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(instagram\.com\/(?:p|stories|reel|tv|shorts)\/[A-Za-z0-9_\-]+)/;
         return regex.test(url);
@@ -393,10 +431,10 @@
             // Proceed with form submission
             console.log("URL is valid");
             event.target.submit();
+
         } else {
             showError("erro1"); // Show error message for invalid URL
             console.log("URL is invalid");
-            link_ig.value = ""; // Clear the input after form submission
             stopLoading()
         }
     }
@@ -449,7 +487,7 @@
 <footer class="text-center text-sm-start" style=" background: linear-gradient(to right,  #bfaee3, #deb5d7, #ffc5e6);">
     <div class="container">
         <div class="text-center p-4 text-black">
-            © 2024 <a href="https://instasnap.me/" style="text-decoration: none; color: black;"> InstaSnap.me</a>- <%= __('All') %>
+            © 2024 <a href="https://instasnap.me/<%= lang %>" style="text-decoration: none; color: black;"> InstaSnap.me</a>- <%= __('All') %>
         </div>
     </div>
 </footer>
@@ -458,6 +496,7 @@
 </body>
 
 </html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
