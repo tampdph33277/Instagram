@@ -8,7 +8,7 @@
     <meta itemprop="image" content="">
     <meta name="twitter:image:src" content="/images/ig.jpg"/>
     <meta property="og:image" content="/images/ig.jpg"/>
-    <link rel="icon" type="image/jpg" href="/public/images/ig.jpg">
+    <link rel="icon" type="image/jpg" href="/public/images/ig.png">
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="shortcut icon" sizes="192x192" href="/images/ig.jpg">
 
@@ -119,6 +119,7 @@
         </div>
     </nav>
 </header>
+
 <main style="background: #fff">
     <div class="dow" style="padding-bottom:5%; background: linear-gradient(to right, #f44336, #e91e63, #9c27b0, #673ab7, #3f51b5);">
         <h1 class="text-white text-center fw-bold display-1"><%= __('h1_video') %></h1>
@@ -170,7 +171,7 @@
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
                             <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
-                                <a href="https://photo.instasaver.me/?url=<%= media.picture_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Story_Picture') %></a>
+                                <a href="https://photo.instasaver.me/?url=<%= media.picture_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Picture') %></a>
                             </p>
                         </div>
                     <% } %>
@@ -182,7 +183,7 @@
                         <div id="card_download" class="card col-12 col-sm-6 col-md-4 pt-2">
                             <img crossorigin="anonymous" id="thumbnail" src="https://ig.instasaver.me/?url=<%= media.picture_stos[0] %>" class="card-img-top" alt="Story thumbnail">
                             <p class="d-flex mt-3 w-100 align-content-center justify-content-center">
-                                <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Story_Video') %></a>
+                                <a href="https://dl.instasaver.me/?url=<%= media.video_stos[0] %>" download class="btn btn-primary btn-sm text-black fw-bold"><%= __('Download_Video') %></a>
                             </p>
                         </div>
                     <% } %>
